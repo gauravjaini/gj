@@ -1,0 +1,2426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Combined — A2 Schrijven / A2 / A2_MB</title>
+<style>
+  :root { --bg:#f8fafc; --ink:#0f172a; --muted:#64748b; --accent:#ea580c; }
+  body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif; color:var(--ink); background:var(--bg); }
+  header { position:sticky; top:0; z-index:10; background:#fff; border-bottom:1px solid #e5e7eb; padding:12px 16px; display:flex; align-items:center; gap:8px; }
+  header h1 { font-size:16px; margin:0; font-weight:700; }
+  main { padding:16px; max-width:1400px; margin:0 auto; }
+  .section { margin: 0 0 28px; background:#fff; border:1px solid #e5e7eb; border-radius:10px; box-shadow: 0 1px 2px rgba(0,0,0,.03); }
+  .section header { position:static; border:0; background:transparent; padding:12px 14px; display:flex; justify-content:space-between; align-items:center; }
+  .title { font-weight:700; color:var(--ink); font-size:15px; }
+  .hint { color:var(--muted); font-size:12px; }
+  iframe { width:100%; height:1200px; border:0; border-top:1px solid #e5e7eb; border-radius:0 0 10px 10px; background:white; }
+  details summary { list-style:none; cursor:pointer; padding:12px 14px; }
+  details summary::-webkit-details-marker { display:none; }
+  .filemeta { font-size:12px; color:var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Combined HTML (original contents embedded, unchanged)</h1>
+</header>
+<main>
+<section class="section">
+  <header>
+    <div class="title">A2.html</div>
+    <div class="filemeta">Embedded via <code>&lt;iframe srcdoc&gt;</code> to keep original markup, styles, and scripts intact.</div>
+  </header>
+  <iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Dutch A2 Writing Exam - 7 Day Strategy&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;&gt;&lt;/script&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;style&gt;
+        body { font-family: &#x27;Inter&#x27;, sans-serif; }
+        .chart-container { position: relative; width: 100%; max-width: 300px; margin: 0 auto; height: 250px; }
+        .card-hover:hover { transform: translateY(-2px); transition: transform 0.2s ease; }
+        .tab-active { background-color: #F3F4F6; border-left: 4px solid #D97706; font-weight: 600; }
+    &lt;/style&gt;
+    &lt;!-- Chosen Palette: Warm Neutrals &amp; Focus Orange --&gt;
+    &lt;!-- Background: #FFFCF5 (Warm White), Text: #374151 (Charcoal), Accent: #D97706 (Muted Orange), Secondary: #E5E7EB (Light Grey) --&gt;
+    &lt;!-- Application Structure Plan: 
+         - Layout: Dashboard style. Left sidebar for the 7-Day Navigation (Timeline). Main area for content. Right sidebar for &quot;Quick Tools&quot; (Cheat sheets).
+         - Logic: Central state object `currentDay`. Clicking a day updates the main view.
+         - Interaction: 
+            1. Day Selection: Updates lesson content, tips, and exercises.
+            2. &quot;Reveal&quot; Buttons: For flashcard-style learning (English -&gt; Dutch).
+            3. Progress Tracker: Simple checkboxes that update a visual chart.
+         - Rationale: The user has limited time (2 hours/day). A linear, day-by-day view reduces cognitive load. Side-by-side translation is crucial for beginners.
+    --&gt;
+    &lt;!-- Visualization &amp; Content Choices:
+         - Exam Composition (Doughnut Chart): To show the user where to focus points (Grammar vs Content).
+         - Daily Schedule (Bar Chart): Visualizing the 2-hour split (Learning vs Writing).
+         - Interaction: Clicking &quot;Mark Complete&quot; updates a progress bar.
+         - Justification: Charts provide a quick overview of the strategy. Text blocks provide the study material. NO SVG used.
+    --&gt;
+    &lt;!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. --&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-[#FFFCF5] text-gray-800 h-screen flex flex-col overflow-hidden&quot;&gt;
+
+    &lt;!-- Header --&gt;
+    &lt;header class=&quot;bg-white border-b border-gray-200 p-4 flex justify-between items-center shadow-sm z-10&quot;&gt;
+        &lt;div&gt;
+            &lt;h1 class=&quot;text-2xl font-bold text-gray-800&quot;&gt;🇳🇱 Inburgering A2 Writing&lt;/h1&gt;
+            &lt;p class=&quot;text-sm text-gray-500&quot;&gt;7-Day Crash Course • 2 Hours/Day&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;flex items-center gap-4&quot;&gt;
+            &lt;div class=&quot;text-right hidden sm:block&quot;&gt;
+                &lt;p class=&quot;text-xs text-gray-400 uppercase tracking-wide&quot;&gt;Course Progress&lt;/p&gt;
+                &lt;div class=&quot;w-32 h-2 bg-gray-200 rounded-full mt-1&quot;&gt;
+                    &lt;div id=&quot;progressBar&quot; class=&quot;h-2 bg-yellow-600 rounded-full&quot; style=&quot;width: 0%&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Main Layout --&gt;
+    &lt;div class=&quot;flex flex-1 overflow-hidden&quot;&gt;
+        
+        &lt;!-- Left Sidebar: The 7 Day Plan --&gt;
+        &lt;nav class=&quot;w-full md:w-64 bg-white border-r border-gray-200 overflow-y-auto flex-shrink-0 hidden md:block&quot;&gt;
+            &lt;div class=&quot;p-4&quot;&gt;
+                &lt;h3 class=&quot;font-bold text-gray-400 text-xs uppercase mb-3 tracking-wider&quot;&gt;The Roadmap&lt;/h3&gt;
+                &lt;ul id=&quot;dayList&quot; class=&quot;space-y-1&quot;&gt;
+                    &lt;!-- Javascript will populate this --&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;p-4 border-t border-gray-100&quot;&gt;
+                &lt;h3 class=&quot;font-bold text-gray-400 text-xs uppercase mb-3 tracking-wider&quot;&gt;Exam Strategy&lt;/h3&gt;
+                &lt;div class=&quot;chart-container&quot; style=&quot;height: 150px;&quot;&gt;
+                    &lt;canvas id=&quot;examScoreChart&quot;&gt;&lt;/canvas&gt;
+                &lt;/div&gt;
+                &lt;p class=&quot;text-xs text-center text-gray-400 mt-2&quot;&gt;Score Weighting&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/nav&gt;
+
+        &lt;!-- Main Content Area --&gt;
+        &lt;main class=&quot;flex-1 overflow-y-auto p-4 md:p-8 bg-[#FFFCF5] relative&quot;&gt;
+            
+            &lt;!-- Mobile Menu Toggle (Visible only on small screens) --&gt;
+            &lt;div class=&quot;md:hidden mb-4&quot;&gt;
+                &lt;select id=&quot;mobileDaySelector&quot; class=&quot;w-full p-2 border border-gray-300 rounded bg-white&quot;&gt;
+                    &lt;!-- JS populated --&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+
+            &lt;div id=&quot;contentArea&quot; class=&quot;max-w-4xl mx-auto space-y-6&quot;&gt;
+                &lt;!-- Dynamic Content Injected Here --&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;h-10&quot;&gt;&lt;/div&gt; &lt;!-- Spacer --&gt;
+        &lt;/main&gt;
+
+        &lt;!-- Right Sidebar: Cheat Sheet (Collapsible on mobile) --&gt;
+        &lt;aside class=&quot;w-72 bg-white border-l border-gray-200 overflow-y-auto hidden lg:block p-4 shadow-sm&quot;&gt;
+            &lt;h3 class=&quot;font-bold text-gray-800 mb-4 border-b pb-2&quot;&gt;🆘 Emergency Kit&lt;/h3&gt;
+            
+            &lt;div class=&quot;mb-6&quot;&gt;
+                &lt;h4 class=&quot;font-semibold text-sm text-yellow-700 mb-2&quot;&gt;Golden Grammar Rule&lt;/h4&gt;
+                &lt;div class=&quot;bg-yellow-50 p-3 rounded border border-yellow-100 text-sm&quot;&gt;
+                    &lt;p class=&quot;font-bold&quot;&gt;Subject + Verb + Time + Rest&lt;/p&gt;
+                    &lt;p class=&quot;mt-1 text-gray-600 italic&quot;&gt;&quot;Ik ga morgen naar school.&quot;&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;mb-6&quot;&gt;
+                &lt;h4 class=&quot;font-semibold text-sm text-blue-700 mb-2&quot;&gt;Connectors (Simpler is Better)&lt;/h4&gt;
+                &lt;ul class=&quot;text-sm space-y-2&quot;&gt;
+                    &lt;li class=&quot;flex justify-between border-b border-gray-50 pb-1&quot;&gt;
+                        &lt;span&gt;and&lt;/span&gt; &lt;span class=&quot;font-bold text-blue-600&quot;&gt;en&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;flex justify-between border-b border-gray-50 pb-1&quot;&gt;
+                        &lt;span&gt;but&lt;/span&gt; &lt;span class=&quot;font-bold text-blue-600&quot;&gt;maar&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;flex justify-between border-b border-gray-50 pb-1&quot;&gt;
+                        &lt;span&gt;because&lt;/span&gt; &lt;span class=&quot;font-bold text-blue-600&quot;&gt;want&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li class=&quot;text-xs text-gray-400 mt-1&quot;&gt;Tip: &quot;Want&quot; does not change word order. &quot;Omdat&quot; does. Use &quot;Want&quot;!&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;mb-6&quot;&gt;
+                &lt;h4 class=&quot;font-semibold text-sm text-green-700 mb-2&quot;&gt;Safe Openers&lt;/h4&gt;
+                &lt;div class=&quot;space-y-2 text-sm&quot;&gt;
+                    &lt;div class=&quot;bg-gray-50 p-2 rounded&quot;&gt;
+                        &lt;p class=&quot;text-gray-500 text-xs&quot;&gt;Informal (Friend)&lt;/p&gt;
+                        &lt;p class=&quot;font-medium&quot;&gt;Hoi [Name], / Hallo [Name],&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;bg-gray-50 p-2 rounded&quot;&gt;
+                        &lt;p class=&quot;text-gray-500 text-xs&quot;&gt;Formal (Company/Stranger)&lt;/p&gt;
+                        &lt;p class=&quot;font-medium&quot;&gt;Geachte heer/mevrouw,&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/aside&gt;
+
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // --- Data &amp; Content ---
+
+        const courseData = [
+            {
+                id: 1,
+                title: &quot;Day 1: The Golden Sentence&quot;,
+                focus: &quot;Word Order &amp; Present Tense&quot;,
+                intro: &quot;Welcome to Day 1. The biggest mistake beginners make is translating directly from English. In Dutch, structure is key. Today, we master the &#x27;Robot Sentence&#x27;. If you stick to this, you pass.&quot;,
+                breakdown: [
+                    { time: &quot;0-30 min&quot;, task: &quot;Learn Subject + Verb + Rest&quot; },
+                    { time: &quot;30-90 min&quot;, task: &quot;Write 10 sentences about yourself&quot; },
+                    { time: &quot;90-120 min&quot;, task: &quot;Review Common Verbs&quot; }
+                ],
+                content: `
+                    &lt;div class=&quot;bg-white p-6 rounded-lg shadow-sm border border-gray-100&quot;&gt;
+                        &lt;h2 class=&quot;text-xl font-bold text-gray-800 mb-4&quot;&gt;The Rule: S.V.T.R.&lt;/h2&gt;
+                        &lt;p class=&quot;mb-4&quot;&gt;Keep it simple. Don&#x27;t make long sentences.&lt;/p&gt;
+                        &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-4 mb-6&quot;&gt;
+                            &lt;div class=&quot;bg-green-50 p-4 rounded border-l-4 border-green-500&quot;&gt;
+                                &lt;h4 class=&quot;font-bold text-green-800&quot;&gt;Structure&lt;/h4&gt;
+                                &lt;p class=&quot;text-sm mt-1&quot;&gt;Subject + Verb + Time + Place/Rest&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;bg-blue-50 p-4 rounded border-l-4 border-blue-500&quot;&gt;
+                                &lt;h4 class=&quot;font-bold text-blue-800&quot;&gt;Example&lt;/h4&gt;
+                                &lt;p class=&quot;text-sm mt-1&quot;&gt;Ik (S) werk (V) vandaag (T) thuis (R).&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-gray-500&quot;&gt;(I work today at home)&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;h3 class=&quot;font-bold text-lg mb-3&quot;&gt;Practice: Translate these&lt;/h3&gt;
+                        &lt;div class=&quot;space-y-3&quot;&gt;
+                            &lt;div class=&quot;p-3 bg-gray-50 rounded flex flex-col cursor-pointer hover:bg-gray-100 transition&quot; onclick=&quot;toggleAnswer(&#x27;d1-a1&#x27;)&quot;&gt;
+                                &lt;span class=&quot;font-medium text-gray-700&quot;&gt;1. I go to the supermarket.&lt;/span&gt;
+                                &lt;span id=&quot;d1-a1&quot; class=&quot;hidden text-green-600 font-bold mt-1&quot;&gt;Ik ga naar de supermarkt.&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;p-3 bg-gray-50 rounded flex flex-col cursor-pointer hover:bg-gray-100 transition&quot; onclick=&quot;toggleAnswer(&#x27;d1-a2&#x27;)&quot;&gt;
+                                &lt;span class=&quot;font-medium text-gray-700&quot;&gt;2. He works in Amsterdam.&lt;/span&gt;
+                                &lt;span id=&quot;d1-a2&quot; class=&quot;hidden text-green-600 font-bold mt-1&quot;&gt;Hij werkt in Amsterdam.&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;p-3 bg-gray-50 rounded flex flex-col cursor-pointer hover:bg-gray-100 transition&quot; onclick=&quot;toggleAnswer(&#x27;d1-a3&#x27;)&quot;&gt;
+                                &lt;span class=&quot;font-medium text-gray-700&quot;&gt;3. We eat pizza tonight.&lt;/span&gt;
+                                &lt;span id=&quot;d1-a3&quot; class=&quot;hidden text-green-600 font-bold mt-1&quot;&gt;Wij eten vanavond pizza.&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 2,
+                title: &quot;Day 2: Linking Ideas&quot;,
+                focus: &quot;Conjunctions: En, Maar, Want&quot;,
+                intro: &quot;You need to connect short sentences to get higher points. We will use &#x27;En&#x27; (and), &#x27;Maar&#x27; (but), and &#x27;Want&#x27; (because). Why &#x27;Want&#x27;? Because &#x27;Omdat&#x27; changes the word order, and &#x27;Want&#x27; does not. Use &#x27;Want&#x27; to be safe!&quot;,
+                breakdown: [
+                    { time: &quot;0-45 min&quot;, task: &quot;Study En, Maar, Want&quot; },
+                    { time: &quot;45-90 min&quot;, task: &quot;Write explanations (Why?)&quot; },
+                    { time: &quot;90-120 min&quot;, task: &quot;Practice Email 1&quot; }
+                ],
+                content: `
+                    &lt;div class=&quot;bg-white p-6 rounded-lg shadow-sm border border-gray-100&quot;&gt;
+                        &lt;h2 class=&quot;text-xl font-bold text-gray-800 mb-4&quot;&gt;The Magic Words&lt;/h2&gt;
+                        
+                        &lt;div class=&quot;overflow-x-auto&quot;&gt;
+                            &lt;table class=&quot;w-full text-sm text-left text-gray-500&quot;&gt;
+                                &lt;thead class=&quot;text-xs text-gray-700 uppercase bg-gray-50&quot;&gt;
+                                    &lt;tr&gt;
+                                        &lt;th class=&quot;px-4 py-2&quot;&gt;Dutch&lt;/th&gt;
+                                        &lt;th class=&quot;px-4 py-2&quot;&gt;English&lt;/th&gt;
+                                        &lt;th class=&quot;px-4 py-2&quot;&gt;Example&lt;/th&gt;
+                                    &lt;/tr&gt;
+                                &lt;/thead&gt;
+                                &lt;tbody&gt;
+                                    &lt;tr class=&quot;bg-white border-b&quot;&gt;
+                                        &lt;td class=&quot;px-4 py-2 font-bold text-gray-900&quot;&gt;En&lt;/td&gt;
+                                        &lt;td class=&quot;px-4 py-2&quot;&gt;And&lt;/td&gt;
+                                        &lt;td class=&quot;px-4 py-2&quot;&gt;Ik heb een hond &lt;span class=&quot;text-orange-600 font-bold&quot;&gt;en&lt;/span&gt; ik heb een kat.&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr class=&quot;bg-white border-b&quot;&gt;
+                                        &lt;td class=&quot;px-4 py-2 font-bold text-gray-900&quot;&gt;Maar&lt;/td&gt;
+                                        &lt;td class=&quot;px-4 py-2&quot;&gt;But&lt;/td&gt;
+                                        &lt;td class=&quot;px-4 py-2&quot;&gt;Ik wil komen, &lt;span class=&quot;text-orange-600 font-bold&quot;&gt;maar&lt;/span&gt; ik ben ziek.&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                    &lt;tr class=&quot;bg-white&quot;&gt;
+                                        &lt;td class=&quot;px-4 py-2 font-bold text-gray-900&quot;&gt;Want&lt;/td&gt;
+                                        &lt;td class=&quot;px-4 py-2&quot;&gt;Because&lt;/td&gt;
+                                        &lt;td class=&quot;px-4 py-2&quot;&gt;Ik blijf thuis, &lt;span class=&quot;text-orange-600 font-bold&quot;&gt;want&lt;/span&gt; het regent.&lt;/td&gt;
+                                    &lt;/tr&gt;
+                                &lt;/tbody&gt;
+                            &lt;/table&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class=&quot;mt-6&quot;&gt;
+                            &lt;h3 class=&quot;font-bold text-lg mb-2&quot;&gt;Exam Hack: The &#x27;Why&#x27; Question&lt;/h3&gt;
+                            &lt;p class=&quot;mb-4 text-sm&quot;&gt;Many exam questions ask &quot;Why?&quot; (Waarom?). Always start your answer with: &lt;br&gt; &lt;span class=&quot;font-mono bg-gray-100 p-1 rounded&quot;&gt;Dat is...&lt;/span&gt; or use &lt;span class=&quot;font-mono bg-gray-100 p-1 rounded&quot;&gt;Want&lt;/span&gt;.&lt;/p&gt;
+                            
+                            &lt;div class=&quot;bg-yellow-50 p-4 rounded border-l-4 border-yellow-400&quot;&gt;
+                                &lt;p class=&quot;font-bold&quot;&gt;Q: Waarom wil je deze baan?&lt;/p&gt;
+                                &lt;p class=&quot;text-sm mb-2 italic&quot;&gt;(Why do you want this job?)&lt;/p&gt;
+                                &lt;p class=&quot;font-bold text-green-700&quot;&gt;A: Ik vind het werk leuk.&lt;/p&gt;
+                                &lt;p class=&quot;text-sm text-gray-500&quot;&gt;(I find the work nice - Simple, Safe)&lt;/p&gt;
+                                &lt;p class=&quot;font-bold text-green-700 mt-2&quot;&gt;A: Ik wil geld verdienen.&lt;/p&gt;
+                                &lt;p class=&quot;text-sm text-gray-500&quot;&gt;(I want to earn money)&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 3,
+                title: &quot;Day 3: The Past (Easy Mode)&quot;,
+                focus: &quot;Perfect Tense (Hebben/Zijn + ge-)&quot;,
+                intro: &quot;You will be asked: &#x27;What did you do yesterday?&#x27;. You need the Perfect Tense. We will focus on the most common regular structure: Hebben + Ge-word.&quot;,
+                breakdown: [
+                    { time: &quot;0-40 min&quot;, task: &quot;Auxiliary Verbs: Hebben &amp; Zijn&quot; },
+                    { time: &quot;40-80 min&quot;, task: &quot;Regular Participles (Gewerkt, Gemaakte, Gespeeld)&quot; },
+                    { time: &quot;80-120 min&quot;, task: &quot;Write 5 sentences about yesterday&quot; }
+                ],
+                content: `
+                    &lt;div class=&quot;bg-white p-6 rounded-lg shadow-sm border border-gray-100&quot;&gt;
+                        &lt;h2 class=&quot;text-xl font-bold text-gray-800 mb-4&quot;&gt;Past Tense Formula&lt;/h2&gt;
+                        &lt;div class=&quot;flex items-center justify-center bg-gray-100 p-4 rounded mb-6 text-center&quot;&gt;
+                            &lt;div&gt;
+                                &lt;span class=&quot;block text-2xl font-bold text-blue-600&quot;&gt;Subject + Hebben/Zijn + ... + Ge-Verb&lt;/span&gt;
+                                &lt;span class=&quot;text-sm text-gray-500&quot;&gt;The &quot;Ge-word&quot; always goes to the VERY END.&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;h3 class=&quot;font-bold text-lg mb-3&quot;&gt;Top 5 Irregular Verbs (Memorize These!)&lt;/h3&gt;
+                        &lt;div class=&quot;grid grid-cols-2 gap-4&quot;&gt;
+                            &lt;div class=&quot;bg-white border p-3 rounded shadow-sm&quot;&gt;
+                                &lt;p class=&quot;text-gray-500 text-xs uppercase&quot;&gt;To Eat (Eten)&lt;/p&gt;
+                                &lt;p class=&quot;font-bold&quot;&gt;Ik heb gegeten&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;bg-white border p-3 rounded shadow-sm&quot;&gt;
+                                &lt;p class=&quot;text-gray-500 text-xs uppercase&quot;&gt;To Drink (Drinken)&lt;/p&gt;
+                                &lt;p class=&quot;font-bold&quot;&gt;Ik heb gedronken&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;bg-white border p-3 rounded shadow-sm&quot;&gt;
+                                &lt;p class=&quot;text-gray-500 text-xs uppercase&quot;&gt;To Go (Gaan)&lt;/p&gt;
+                                &lt;p class=&quot;font-bold text-red-500&quot;&gt;Ik ben gegaan *&lt;/p&gt;
+                                &lt;p class=&quot;text-[10px] text-gray-400&quot;&gt;* Uses &#x27;Ben&#x27; (Am) not &#x27;Heb&#x27; (Have)&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;bg-white border p-3 rounded shadow-sm&quot;&gt;
+                                &lt;p class=&quot;text-gray-500 text-xs uppercase&quot;&gt;To Buy (Kopen)&lt;/p&gt;
+                                &lt;p class=&quot;font-bold&quot;&gt;Ik heb gekocht&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class=&quot;mt-6 bg-blue-50 p-4 rounded&quot;&gt;
+                            &lt;h4 class=&quot;font-bold text-blue-800&quot;&gt;Practice Question:&lt;/h4&gt;
+                            &lt;p class=&quot;mb-2&quot;&gt;&quot;Wat heb je gisteren gedaan?&quot; (What did you do yesterday?)&lt;/p&gt;
+                            &lt;ul class=&quot;list-disc pl-5 space-y-1 text-sm text-gray-700&quot;&gt;
+                                &lt;li&gt;Ik heb gisteren gewerkt. (I worked yesterday)&lt;/li&gt;
+                                &lt;li&gt;Ik heb televisie gekeken. (I watched TV)&lt;/li&gt;
+                                &lt;li&gt;Ik heb boodschappen gedaan. (I did groceries)&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 4,
+                title: &quot;Day 4: Short Emails (Formal/Informal)&quot;,
+                focus: &quot;Greetings, Closings &amp; Tone&quot;,
+                intro: &quot;The exam always has 1 or 2 emails. You must know the difference between writing to a friend (Je/Jij) and a boss/teacher (U).&quot;,
+                breakdown: [
+                    { time: &quot;0-30 min&quot;, task: &quot;Memorize Greetings/Closings&quot; },
+                    { time: &quot;30-90 min&quot;, task: &quot;Analyze Template 1 (Invitation)&quot; },
+                    { time: &quot;90-120 min&quot;, task: &quot;Analyze Template 2 (Problem)&quot; }
+                ],
+                content: `
+                    &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-6&quot;&gt;
+                        &lt;!-- Informal Card --&gt;
+                        &lt;div class=&quot;bg-white p-5 rounded-lg shadow-sm border-t-4 border-green-400&quot;&gt;
+                            &lt;h3 class=&quot;font-bold text-lg mb-2&quot;&gt;Informal (Friend/Neighbor)&lt;/h3&gt;
+                            &lt;div class=&quot;space-y-4 text-sm&quot;&gt;
+                                &lt;div&gt;
+                                    &lt;span class=&quot;text-xs uppercase text-gray-400 font-bold&quot;&gt;Start&lt;/span&gt;
+                                    &lt;p class=&quot;font-medium&quot;&gt;Hoi Anna, / Hallo Peter,&lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                    &lt;span class=&quot;text-xs uppercase text-gray-400 font-bold&quot;&gt;The &#x27;You&#x27;&lt;/span&gt;
+                                    &lt;p class=&quot;font-medium&quot;&gt;Jij / Je / Jouw&lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                    &lt;span class=&quot;text-xs uppercase text-gray-400 font-bold&quot;&gt;End&lt;/span&gt;
+                                    &lt;p class=&quot;font-medium&quot;&gt;Groetjes,&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Formal Card --&gt;
+                        &lt;div class=&quot;bg-white p-5 rounded-lg shadow-sm border-t-4 border-gray-600&quot;&gt;
+                            &lt;h3 class=&quot;font-bold text-lg mb-2&quot;&gt;Formal (Boss/Teacher)&lt;/h3&gt;
+                            &lt;div class=&quot;space-y-4 text-sm&quot;&gt;
+                                &lt;div&gt;
+                                    &lt;span class=&quot;text-xs uppercase text-gray-400 font-bold&quot;&gt;Start&lt;/span&gt;
+                                    &lt;p class=&quot;font-medium&quot;&gt;Beste meneer Jansen, / Geachte mevrouw,&lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                    &lt;span class=&quot;text-xs uppercase text-gray-400 font-bold&quot;&gt;The &#x27;You&#x27;&lt;/span&gt;
+                                    &lt;p class=&quot;font-medium&quot;&gt;U / Uw&lt;/p&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                    &lt;span class=&quot;text-xs uppercase text-gray-400 font-bold&quot;&gt;End&lt;/span&gt;
+                                    &lt;p class=&quot;font-medium&quot;&gt;Met vriendelijke groet,&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;bg-white p-6 rounded-lg shadow-sm border border-gray-100 mt-6&quot;&gt;
+                        &lt;h3 class=&quot;font-bold text-lg mb-4&quot;&gt;Template: The Invitation (Uitnodiging)&lt;/h3&gt;
+                        &lt;div class=&quot;bg-gray-50 p-4 rounded font-mono text-sm leading-relaxed&quot;&gt;
+                            &lt;p&gt;Hoi [Naam],&lt;/p&gt;
+                            &lt;br&gt;
+                            &lt;p&gt;Hoe gaat het?&lt;/p&gt;
+                            &lt;p&gt;Ik ben jarig op zaterdag.&lt;/p&gt;
+                            &lt;p&gt;Ik geef een feestje.&lt;/p&gt;
+                            &lt;p&gt;Wil je komen?&lt;/p&gt;
+                            &lt;p&gt;Het feest begint om 20:00 uur.&lt;/p&gt;
+                            &lt;br&gt;
+                            &lt;p&gt;Groetjes,&lt;/p&gt;
+                            &lt;p&gt;[Jouw Naam]&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 5,
+                title: &quot;Day 5: Topics - Appointments &amp; Housing&quot;,
+                focus: &quot;Cancelling, Rescheduling, Repairs&quot;,
+                intro: &quot;Common exam scenarios: You are sick and can&#x27;t come, or something is broken in your house. Learn these exact phrases.&quot;,
+                breakdown: [
+                    { time: &quot;0-60 min&quot;, task: &quot;Topic: Appointments (Afspraken)&quot; },
+                    { time: &quot;60-120 min&quot;, task: &quot;Topic: Housing Problems&quot; }
+                ],
+                content: `
+                     &lt;div class=&quot;bg-white p-6 rounded-lg shadow-sm border border-gray-100&quot;&gt;
+                        &lt;h2 class=&quot;text-xl font-bold text-gray-800 mb-4&quot;&gt;Scenario 1: Cancelling an Appointment&lt;/h2&gt;
+                        &lt;p class=&quot;text-sm mb-4&quot;&gt;You have an appointment but you are sick. Write an email/note.&lt;/p&gt;
+                        
+                        &lt;div class=&quot;space-y-3&quot;&gt;
+                            &lt;div class=&quot;flex items-start&quot;&gt;
+                                &lt;span class=&quot;bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded mr-3 mt-1&quot;&gt;Problem&lt;/span&gt;
+                                &lt;p&gt;Ik kan niet komen op de afspraak.&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;flex items-start&quot;&gt;
+                                &lt;span class=&quot;bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded mr-3 mt-1&quot;&gt;Reason&lt;/span&gt;
+                                &lt;p&gt;Ik ben ziek.&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;flex items-start&quot;&gt;
+                                &lt;span class=&quot;bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded mr-3 mt-1&quot;&gt;Solution&lt;/span&gt;
+                                &lt;p&gt;Kan ik een nieuwe afspraak maken?&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;hr class=&quot;my-6&quot;&gt;
+
+                        &lt;h2 class=&quot;text-xl font-bold text-gray-800 mb-4&quot;&gt;Scenario 2: Broken House&lt;/h2&gt;
+                        &lt;p class=&quot;text-sm mb-4&quot;&gt;Write a note to the neighbor or landlord.&lt;/p&gt;
+                         &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-4&quot;&gt;
+                            &lt;div class=&quot;border p-3 rounded&quot;&gt;
+                                &lt;p class=&quot;font-bold text-sm&quot;&gt;The Window is broken&lt;/p&gt;
+                                &lt;p class=&quot;text-gray-600&quot;&gt;Het raam is kapot.&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;border p-3 rounded&quot;&gt;
+                                &lt;p class=&quot;font-bold text-sm&quot;&gt;The Heating doesn&#x27;t work&lt;/p&gt;
+                                &lt;p class=&quot;text-gray-600&quot;&gt;De verwarming doet het niet.&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;border p-3 rounded&quot;&gt;
+                                &lt;p class=&quot;font-bold text-sm&quot;&gt;There is a leak&lt;/p&gt;
+                                &lt;p class=&quot;text-gray-600&quot;&gt;Er is een lekkage.&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;border p-3 rounded&quot;&gt;
+                                &lt;p class=&quot;font-bold text-sm&quot;&gt;Can you help me?&lt;/p&gt;
+                                &lt;p class=&quot;text-gray-600&quot;&gt;Kunt u mij helpen?&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 6,
+                title: &quot;Day 6: Topics - Work &amp; Vacation&quot;,
+                focus: &quot;Asking permission, Reporting sick&quot;,
+                intro: &quot;Workplace communication is formal but direct. Keep it short.&quot;,
+                breakdown: [
+                    { time: &quot;0-60 min&quot;, task: &quot;Reporting Sick to Boss&quot; },
+                    { time: &quot;60-120 min&quot;, task: &quot;Asking for Vacation&quot; }
+                ],
+                content: `
+                    &lt;div class=&quot;bg-white p-6 rounded-lg shadow-sm border border-gray-100&quot;&gt;
+                        &lt;h2 class=&quot;text-xl font-bold text-gray-800 mb-4&quot;&gt;Task: Ask for Vacation&lt;/h2&gt;
+                        &lt;div class=&quot;bg-gray-50 p-4 rounded mb-4&quot;&gt;
+                            &lt;h4 class=&quot;font-bold mb-2&quot;&gt;Checklist for answer:&lt;/h4&gt;
+                            &lt;ul class=&quot;list-disc pl-5 text-sm space-y-1&quot;&gt;
+                                &lt;li&gt;Say you want vacation.&lt;/li&gt;
+                                &lt;li&gt;Say WHEN (dates).&lt;/li&gt;
+                                &lt;li&gt;Ask if it is okay.&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class=&quot;bg-blue-50 p-4 rounded border border-blue-100&quot;&gt;
+                            &lt;h4 class=&quot;font-bold text-blue-900 mb-2&quot;&gt;Model Answer&lt;/h4&gt;
+                            &lt;p class=&quot;mb-2&quot;&gt;Beste meneer de Vries,&lt;/p&gt;
+                            &lt;p class=&quot;mb-1&quot;&gt;Ik wil graag vakantie opnemen.&lt;/p&gt;
+                            &lt;p class=&quot;mb-1&quot;&gt;Ik wil vrij van 1 augustus tot 14 augustus.&lt;/p&gt;
+                            &lt;p class=&quot;mb-2&quot;&gt;Is dat mogelijk?&lt;/p&gt;
+                            &lt;p&gt;Met vriendelijke groet,&lt;/p&gt;
+                            &lt;p&gt;[Naam]&lt;/p&gt;
+                        &lt;/div&gt;
+
+                         &lt;div class=&quot;mt-6&quot;&gt;
+                            &lt;h3 class=&quot;font-bold text-lg mb-2&quot;&gt;Useful Vocabulary&lt;/h3&gt;
+                            &lt;ul class=&quot;grid grid-cols-2 gap-2 text-sm&quot;&gt;
+                                &lt;li class=&quot;bg-gray-50 p-2 rounded&quot;&gt;Vakantie (Vacation)&lt;/li&gt;
+                                &lt;li class=&quot;bg-gray-50 p-2 rounded&quot;&gt;Vrij (Free/Off)&lt;/li&gt;
+                                &lt;li class=&quot;bg-gray-50 p-2 rounded&quot;&gt;Ziek (Sick)&lt;/li&gt;
+                                &lt;li class=&quot;bg-gray-50 p-2 rounded&quot;&gt;Beter (Better/Recovered)&lt;/li&gt;
+                                &lt;li class=&quot;bg-gray-50 p-2 rounded&quot;&gt;Morgen (Tomorrow)&lt;/li&gt;
+                                &lt;li class=&quot;bg-gray-50 p-2 rounded&quot;&gt;Overmorgen (Day after tomorrow)&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 7,
+                title: &quot;Day 7: Exam Day Simulation&quot;,
+                focus: &quot;Timing &amp; Generic Answers&quot;,
+                intro: &quot;Today we don&#x27;t learn new grammar. We learn how to survive if you don&#x27;t know the answer.&quot;,
+                breakdown: [
+                    { time: &quot;0-30 min&quot;, task: &quot;Review Cheat Sheet&quot; },
+                    { time: &quot;30-90 min&quot;, task: &quot;Simulated Exam (4 sentences per q)&quot; },
+                    { time: &quot;90-120 min&quot;, task: &quot;Final Vocabulary Review&quot; }
+                ],
+                content: `
+                    &lt;div class=&quot;bg-white p-6 rounded-lg shadow-sm border border-gray-100&quot;&gt;
+                        &lt;h2 class=&quot;text-xl font-bold text-gray-800 mb-4 text-red-600&quot;&gt;🚨 The &quot;I Don&#x27;t Know&quot; Strategy&lt;/h2&gt;
+                        &lt;p class=&quot;mb-4&quot;&gt;What if you don&#x27;t understand the topic? Use generic sentences that fit almost anywhere.&lt;/p&gt;
+                        
+                        &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-4 mb-6&quot;&gt;
+                            &lt;div class=&quot;bg-yellow-50 p-4 rounded border border-yellow-200&quot;&gt;
+                                &lt;p class=&quot;font-bold text-sm mb-1&quot;&gt;Generic Opinion&lt;/p&gt;
+                                &lt;p class=&quot;text-lg&quot;&gt;&quot;Ik vind dat een goed idee.&quot;&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-gray-500&quot;&gt;(I think that is a good idea)&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;bg-yellow-50 p-4 rounded border border-yellow-200&quot;&gt;
+                                &lt;p class=&quot;font-bold text-sm mb-1&quot;&gt;Generic Feeling&lt;/p&gt;
+                                &lt;p class=&quot;text-lg&quot;&gt;&quot;Ik vind dat leuk.&quot;&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-gray-500&quot;&gt;(I find that nice/fun)&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;bg-yellow-50 p-4 rounded border border-yellow-200&quot;&gt;
+                                &lt;p class=&quot;font-bold text-sm mb-1&quot;&gt;Generic Action&lt;/p&gt;
+                                &lt;p class=&quot;text-lg&quot;&gt;&quot;Ik ga dat doen.&quot;&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-gray-500&quot;&gt;(I am going to do that)&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;bg-yellow-50 p-4 rounded border border-yellow-200&quot;&gt;
+                                &lt;p class=&quot;font-bold text-sm mb-1&quot;&gt;Generic Time&lt;/p&gt;
+                                &lt;p class=&quot;text-lg&quot;&gt;&quot;Ik heb morgen tijd.&quot;&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-gray-500&quot;&gt;(I have time tomorrow)&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;h3 class=&quot;font-bold text-lg mb-3&quot;&gt;Final Exam Tips&lt;/h3&gt;
+                        &lt;ul class=&quot;list-decimal pl-5 space-y-2 text-sm text-gray-700&quot;&gt;
+                            &lt;li&gt;&lt;strong&gt;Count your words.&lt;/strong&gt; Usually you need ~30 words for an email. Don&#x27;t write 100. More words = more mistakes.&lt;/li&gt;
+                            &lt;li&gt;&lt;strong&gt;Copy the question.&lt;/strong&gt; If they ask &quot;Wanneer kom je?&quot;, you write &quot;Ik kom...&quot; (Use the verb from the question).&lt;/li&gt;
+                            &lt;li&gt;&lt;strong&gt;Check your Verbs.&lt;/strong&gt; Is the verb in the second position? (Subject + Verb).&lt;/li&gt;
+                            &lt;li&gt;&lt;strong&gt;Keep it clean.&lt;/strong&gt; Capital letters at start, period at the end.&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/div&gt;
+                `
+            }
+        ];
+
+        // --- State ---
+        let currentDayId = 1;
+        let completedDays = [false, false, false, false, false, false, false];
+
+        // --- DOM Elements ---
+        const dayListEl = document.getElementById(&#x27;dayList&#x27;);
+        const contentAreaEl = document.getElementById(&#x27;contentArea&#x27;);
+        const progressBarEl = document.getElementById(&#x27;progressBar&#x27;);
+        const mobileSelector = document.getElementById(&#x27;mobileDaySelector&#x27;);
+
+        // --- Initialization ---
+        function init() {
+            renderNav();
+            renderContent(1);
+            initCharts();
+        }
+
+        // --- Render Functions ---
+        function renderNav() {
+            dayListEl.innerHTML = &#x27;&#x27;;
+            mobileSelector.innerHTML = &#x27;&#x27;;
+
+            courseData.forEach((day, index) =&gt; {
+                // Desktop Sidebar List
+                const li = document.createElement(&#x27;li&#x27;);
+                const isCompleted = completedDays[index];
+                const isActive = day.id === currentDayId;
+                
+                li.className = `p-3 rounded cursor-pointer text-sm flex items-center justify-between group ${isActive ? &#x27;bg-orange-50 text-orange-800 font-bold border-l-4 border-orange-500&#x27; : &#x27;hover:bg-gray-50 text-gray-600&#x27;}`;
+                li.innerHTML = `
+                    &lt;div class=&quot;flex items-center&quot;&gt;
+                        &lt;span class=&quot;w-6 h-6 rounded-full flex items-center justify-center text-xs mr-3 ${isCompleted ? &#x27;bg-green-500 text-white&#x27; : &#x27;bg-gray-200 text-gray-500&#x27;}&quot;&gt;
+                            ${isCompleted ? &#x27;✓&#x27; : day.id}
+                        &lt;/span&gt;
+                        &lt;span&gt;${day.title}&lt;/span&gt;
+                    &lt;/div&gt;
+                `;
+                li.onclick = () =&gt; renderContent(day.id);
+                dayListEl.appendChild(li);
+
+                // Mobile Dropdown
+                const option = document.createElement(&#x27;option&#x27;);
+                option.value = day.id;
+                option.text = day.title;
+                mobileSelector.appendChild(option);
+            });
+
+            // Sync Mobile Selector
+            mobileSelector.value = currentDayId;
+            mobileSelector.onchange = (e) =&gt; renderContent(parseInt(e.target.value));
+
+            // Update Progress Bar
+            const completedCount = completedDays.filter(Boolean).length;
+            const percentage = (completedCount / 7) * 100;
+            progressBarEl.style.width = `${percentage}%`;
+        }
+
+        function renderContent(id) {
+            currentDayId = id;
+            const day = courseData.find(d =&gt; d.id === id);
+            
+            // Build Content HTML
+            let breakdownHTML = &#x27;&#x27;;
+            day.breakdown.forEach(item =&gt; {
+                breakdownHTML += `
+                    &lt;div class=&quot;flex items-center text-sm border-b border-gray-100 py-2 last:border-0&quot;&gt;
+                        &lt;span class=&quot;w-24 font-mono text-gray-400 text-xs&quot;&gt;${item.time}&lt;/span&gt;
+                        &lt;span class=&quot;flex-1 font-medium text-gray-700&quot;&gt;${item.task}&lt;/span&gt;
+                    &lt;/div&gt;
+                `;
+            });
+
+            const html = `
+                &lt;!-- Day Header --&gt;
+                &lt;div class=&quot;bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex flex-col md:flex-row justify-between items-start md:items-center gap-4&quot;&gt;
+                    &lt;div&gt;
+                        &lt;span class=&quot;text-orange-600 font-bold uppercase tracking-wide text-xs&quot;&gt;Day ${day.id}&lt;/span&gt;
+                        &lt;h2 class=&quot;text-2xl font-bold text-gray-900&quot;&gt;${day.title}&lt;/h2&gt;
+                        &lt;p class=&quot;text-gray-500 text-sm mt-1&quot;&gt;${day.focus}&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;button onclick=&quot;markComplete(${day.id})&quot; class=&quot;px-4 py-2 rounded shadow-sm text-sm font-bold transition ${completedDays[day.id-1] ? &#x27;bg-green-100 text-green-700&#x27; : &#x27;bg-gray-800 text-white hover:bg-gray-700&#x27;}&quot;&gt;
+                        ${completedDays[day.id-1] ? &#x27;✓ Completed&#x27; : &#x27;Mark as Done&#x27;}
+                    &lt;/button&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Intro &amp; Time Allocation --&gt;
+                &lt;div class=&quot;grid grid-cols-1 md:grid-cols-3 gap-6&quot;&gt;
+                    &lt;div class=&quot;md:col-span-2 bg-white p-6 rounded-lg shadow-sm border border-gray-100&quot;&gt;
+                        &lt;h3 class=&quot;font-bold text-gray-800 mb-2&quot;&gt;Strategy for Today&lt;/h3&gt;
+                        &lt;p class=&quot;text-gray-600 text-sm leading-relaxed&quot;&gt;${day.intro}&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;bg-white p-6 rounded-lg shadow-sm border border-gray-100&quot;&gt;
+                        &lt;h3 class=&quot;font-bold text-gray-800 mb-3 text-sm uppercase&quot;&gt;2-Hour Plan&lt;/h3&gt;
+                        &lt;div class=&quot;flex flex-col&quot;&gt;
+                            ${breakdownHTML}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Main Lesson Content --&gt;
+                ${day.content}
+            `;
+
+            contentAreaEl.innerHTML = html;
+            renderNav(); // Re-render nav to update active state
+        }
+
+        function markComplete(id) {
+            completedDays[id-1] = !completedDays[id-1];
+            renderNav();
+            renderContent(id);
+        }
+
+        // Global function for the flashcard toggles
+        window.toggleAnswer = function(id) {
+            const el = document.getElementById(id);
+            if(el.classList.contains(&#x27;hidden&#x27;)) {
+                el.classList.remove(&#x27;hidden&#x27;);
+            } else {
+                el.classList.add(&#x27;hidden&#x27;);
+            }
+        }
+
+        // --- Charts ---
+        function initCharts() {
+            // Exam Score Chart (What matters)
+            const ctx = document.getElementById(&#x27;examScoreChart&#x27;).getContext(&#x27;2d&#x27;);
+            new Chart(ctx, {
+                type: &#x27;doughnut&#x27;,
+                data: {
+                    labels: [&#x27;Content (Inhoud)&#x27;, &#x27;Grammar (Grammatica)&#x27;, &#x27;Vocabulary (Woordenschat)&#x27;],
+                    datasets: [{
+                        data: [40, 30, 30],
+                        backgroundColor: [&#x27;#D97706&#x27;, &#x27;#4B5563&#x27;, &#x27;#9CA3AF&#x27;],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + &#x27;: &#x27; + context.raw + &#x27;%&#x27;;
+                                }
+                            }
+                        }
+                    },
+                    cutout: &#x27;70%&#x27;
+                }
+            });
+        }
+
+        // Start App
+        init();
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+</section>
+<section class="section">
+  <header>
+    <div class="title">A2_MB.html</div>
+    <div class="filemeta">Embedded via <code>&lt;iframe srcdoc&gt;</code> to keep original markup, styles, and scripts intact.</div>
+  </header>
+  <iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Dutch A2 Writing Exam - Ultimate Prep&lt;/title&gt;
+    &lt;script src=&quot;https://cdn.tailwindcss.com&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/chart.js&quot;&gt;&lt;/script&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;style&gt;
+        body { font-family: &#x27;Inter&#x27;, sans-serif; }
+        .chart-container { position: relative; width: 100%; max-width: 300px; margin: 0 auto; height: 250px; }
+        .card-hover:hover { transform: translateY(-2px); transition: transform 0.2s ease; }
+        .tab-active { background-color: #FFF7ED; border-left: 4px solid #D97706; color: #9A3412; font-weight: 700; }
+        
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
+    &lt;/style&gt;
+    &lt;!-- Chosen Palette: Warm Neutrals &amp; Focus Orange --&gt;
+    &lt;!-- Background: #FFFCF5 (Warm White), Text: #374151 (Charcoal), Accent: #D97706 (Muted Orange), Secondary: #E5E7EB (Light Grey) --&gt;
+    
+    &lt;!-- Application Structure Plan: 
+         - Layout: Dashboard style (Left Nav, Main Content, Right Helper).
+         - Logic: &#x27;courseData&#x27; array holds all lessons including the new &#x27;Memory Bank&#x27;.
+         - Interaction: 
+            1. Navigation: Switches main content view.
+            2. Flashcards: &#x27;Click to Reveal&#x27; interaction in the Memory Bank section to aid memorization.
+            3. Progress: Persists simple checkmarks.
+         - Update: Added &quot;Memory Bank&quot; as a distinct module with categorized, short sentences.
+    --&gt;
+    
+    &lt;!-- Visualization &amp; Content Choices:
+         - Progress Charts: Visual motivation.
+         - Interactive Flashcard Lists: HTML/JS driven lists where Dutch text is hidden/shown.
+         - Color Coding: Green for simple verbs, Orange for conjunctions, Blue for structure.
+         - NO SVG/Mermaid.
+    --&gt;
+    &lt;!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. --&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-[#FFFCF5] text-gray-800 h-screen flex flex-col overflow-hidden&quot;&gt;
+
+    &lt;!-- Header --&gt;
+    &lt;header class=&quot;bg-white border-b border-gray-200 p-4 flex justify-between items-center shadow-sm z-10 shrink-0&quot;&gt;
+        &lt;div class=&quot;flex items-center gap-3&quot;&gt;
+            &lt;div class=&quot;bg-orange-100 p-2 rounded text-orange-600 font-bold text-xl&quot;&gt;🇳🇱&lt;/div&gt;
+            &lt;div&gt;
+                &lt;h1 class=&quot;text-xl md:text-2xl font-bold text-gray-800 tracking-tight&quot;&gt;Inburgering A2 Writing&lt;/h1&gt;
+                &lt;p class=&quot;text-xs text-gray-500 font-medium&quot;&gt;Complete Strategy &amp; Memory Bank&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;flex items-center gap-4&quot;&gt;
+            &lt;div class=&quot;text-right hidden sm:block&quot;&gt;
+                &lt;p class=&quot;text-[10px] text-gray-400 uppercase tracking-wide font-bold&quot;&gt;Progress&lt;/p&gt;
+                &lt;div class=&quot;w-32 h-2 bg-gray-100 rounded-full mt-1 overflow-hidden&quot;&gt;
+                    &lt;div id=&quot;progressBar&quot; class=&quot;h-full bg-orange-500 rounded-full transition-all duration-500&quot; style=&quot;width: 0%&quot;&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Main Layout --&gt;
+    &lt;div class=&quot;flex flex-1 overflow-hidden&quot;&gt;
+        
+        &lt;!-- Left Sidebar: Navigation --&gt;
+        &lt;nav class=&quot;w-full md:w-64 bg-white border-r border-gray-200 overflow-y-auto flex-shrink-0 hidden md:block&quot;&gt;
+            &lt;div class=&quot;p-4&quot;&gt;
+                &lt;h3 class=&quot;font-bold text-gray-400 text-[10px] uppercase mb-3 tracking-wider&quot;&gt;7-Day Plan&lt;/h3&gt;
+                &lt;ul id=&quot;dayList&quot; class=&quot;space-y-1&quot;&gt;
+                    &lt;!-- Javascript will populate days 1-7 --&gt;
+                &lt;/ul&gt;
+                
+                &lt;h3 class=&quot;font-bold text-gray-400 text-[10px] uppercase mt-6 mb-3 tracking-wider&quot;&gt;Resources&lt;/h3&gt;
+                &lt;ul id=&quot;resourceList&quot; class=&quot;space-y-1&quot;&gt;
+                    &lt;!-- Javascript will populate Memory Bank --&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;p-4 border-t border-gray-100 mt-auto&quot;&gt;
+                &lt;h3 class=&quot;font-bold text-gray-400 text-[10px] uppercase mb-3 tracking-wider&quot;&gt;Scoring Focus&lt;/h3&gt;
+                &lt;div class=&quot;chart-container&quot; style=&quot;height: 120px;&quot;&gt;
+                    &lt;canvas id=&quot;examScoreChart&quot;&gt;&lt;/canvas&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/nav&gt;
+
+        &lt;!-- Main Content Area --&gt;
+        &lt;main class=&quot;flex-1 overflow-y-auto p-4 md:p-8 bg-[#FFFCF5] relative scroll-smooth&quot; id=&quot;mainScroll&quot;&gt;
+            
+            &lt;!-- Mobile Menu Toggle --&gt;
+            &lt;div class=&quot;md:hidden mb-4&quot;&gt;
+                &lt;select id=&quot;mobileDaySelector&quot; class=&quot;w-full p-3 border border-gray-300 rounded-lg bg-white font-medium shadow-sm focus:ring-2 focus:ring-orange-200 outline-none&quot;&gt;
+                    &lt;!-- JS populated --&gt;
+                &lt;/select&gt;
+            &lt;/div&gt;
+
+            &lt;div id=&quot;contentArea&quot; class=&quot;max-w-4xl mx-auto space-y-6 pb-20&quot;&gt;
+                &lt;!-- Dynamic Content Injected Here --&gt;
+            &lt;/div&gt;
+        &lt;/main&gt;
+
+        &lt;!-- Right Sidebar: Quick Reference --&gt;
+        &lt;aside class=&quot;w-72 bg-white border-l border-gray-200 overflow-y-auto hidden lg:block p-5 shadow-[0_0_15px_rgba(0,0,0,0.02)] z-10&quot;&gt;
+            &lt;div class=&quot;sticky top-0 bg-white pb-4 border-b border-gray-100 mb-4 z-10&quot;&gt;
+                &lt;h3 class=&quot;font-bold text-gray-800 text-sm flex items-center gap-2&quot;&gt;
+                    &lt;span class=&quot;text-orange-500&quot;&gt;⚡&lt;/span&gt; Quick Cheat Sheet
+                &lt;/h3&gt;
+            &lt;/div&gt;
+            
+            &lt;div class=&quot;space-y-6&quot;&gt;
+                &lt;!-- Golden Rule --&gt;
+                &lt;div&gt;
+                    &lt;h4 class=&quot;font-semibold text-xs text-gray-500 uppercase tracking-wide mb-2&quot;&gt;Word Order (S.V.T.R)&lt;/h4&gt;
+                    &lt;div class=&quot;bg-orange-50 p-3 rounded-lg border border-orange-100 text-sm shadow-sm&quot;&gt;
+                        &lt;div class=&quot;flex gap-1 mb-1 font-mono text-xs font-bold text-orange-800&quot;&gt;
+                            &lt;span&gt;1.Subject&lt;/span&gt; &lt;span&gt;2.Verb&lt;/span&gt; &lt;span&gt;3.Time&lt;/span&gt; &lt;span&gt;4.Rest&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;p class=&quot;text-gray-800 font-medium&quot;&gt;&quot;Ik ga morgen naar school.&quot;&lt;/p&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Connectors --&gt;
+                &lt;div&gt;
+                    &lt;h4 class=&quot;font-semibold text-xs text-gray-500 uppercase tracking-wide mb-2&quot;&gt;Connectors&lt;/h4&gt;
+                    &lt;ul class=&quot;text-sm space-y-2 bg-gray-50 p-3 rounded-lg border border-gray-100&quot;&gt;
+                        &lt;li class=&quot;flex justify-between items-center&quot;&gt;
+                            &lt;span class=&quot;text-gray-600&quot;&gt;and&lt;/span&gt; 
+                            &lt;span class=&quot;font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded&quot;&gt;en&lt;/span&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;flex justify-between items-center&quot;&gt;
+                            &lt;span class=&quot;text-gray-600&quot;&gt;but&lt;/span&gt; 
+                            &lt;span class=&quot;font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded&quot;&gt;maar&lt;/span&gt;
+                        &lt;/li&gt;
+                        &lt;li class=&quot;flex justify-between items-center&quot;&gt;
+                            &lt;span class=&quot;text-gray-600&quot;&gt;because&lt;/span&gt; 
+                            &lt;span class=&quot;font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded&quot;&gt;want&lt;/span&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Greetings --&gt;
+                &lt;div&gt;
+                    &lt;h4 class=&quot;font-semibold text-xs text-gray-500 uppercase tracking-wide mb-2&quot;&gt;Greetings&lt;/h4&gt;
+                    &lt;div class=&quot;space-y-2 text-sm&quot;&gt;
+                        &lt;div class=&quot;border-l-2 border-green-400 pl-3 py-1&quot;&gt;
+                            &lt;p class=&quot;text-xs text-gray-400 font-semibold&quot;&gt;Informal&lt;/p&gt;
+                            &lt;p class=&quot;font-medium text-gray-800&quot;&gt;Hoi [Naam],&lt;/p&gt;
+                            &lt;p class=&quot;font-medium text-gray-800&quot;&gt;Groetjes,&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;border-l-2 border-purple-400 pl-3 py-1&quot;&gt;
+                            &lt;p class=&quot;text-xs text-gray-400 font-semibold&quot;&gt;Formal&lt;/p&gt;
+                            &lt;p class=&quot;font-medium text-gray-800&quot;&gt;Beste meneer/mevrouw,&lt;/p&gt;
+                            &lt;p class=&quot;font-medium text-gray-800&quot;&gt;Met vriendelijke groet,&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/aside&gt;
+
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // --- Course Data ---
+        // Includes original 7 days PLUS the new &quot;Memory Bank&quot; resource.
+        const courseData = [
+            {
+                id: 1,
+                type: &#x27;day&#x27;,
+                title: &quot;Day 1: The Golden Sentence&quot;,
+                focus: &quot;Structure: Subject + Verb + Rest&quot;,
+                intro: &quot;Start here. In Dutch, the verb is ALWAYS the second element in a main sentence. Do not translate word-for-word from English. Think like a robot: Subject, Verb, Time, Rest.&quot;,
+                breakdown: [
+                    { time: &quot;30 min&quot;, task: &quot;Learn the S.V.T.R rule.&quot; },
+                    { time: &quot;45 min&quot;, task: &quot;Write 10 sentences about yourself.&quot; },
+                    { time: &quot;45 min&quot;, task: &quot;Memorize 5 common verbs.&quot; }
+                ],
+                content: `
+                    &lt;div class=&quot;bg-white p-6 rounded-xl shadow-sm border border-gray-100&quot;&gt;
+                        &lt;h2 class=&quot;text-xl font-bold text-gray-800 mb-6 flex items-center&quot;&gt;
+                            &lt;span class=&quot;bg-orange-100 text-orange-600 w-8 h-8 rounded-full flex items-center justify-center mr-3 text-sm&quot;&gt;1&lt;/span&gt;
+                            The S.V.T.R. Formula
+                        &lt;/h2&gt;
+                        
+                        &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-6 mb-8&quot;&gt;
+                            &lt;div class=&quot;bg-gray-50 p-5 rounded-lg border border-gray-200&quot;&gt;
+                                &lt;h4 class=&quot;font-bold text-gray-700 mb-2 border-b pb-2&quot;&gt;Incorrect (English Thinking)&lt;/h4&gt;
+                                &lt;p class=&quot;text-red-500 line-through&quot;&gt;I go tomorrow to school.&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-gray-500 mt-2&quot;&gt;English puts time in the middle/end loosely.&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;bg-green-50 p-5 rounded-lg border border-green-200&quot;&gt;
+                                &lt;h4 class=&quot;font-bold text-green-800 mb-2 border-b border-green-200 pb-2&quot;&gt;Correct (Dutch Rule)&lt;/h4&gt;
+                                &lt;p class=&quot;font-bold text-green-700 text-lg&quot;&gt;Ik &lt;span class=&quot;text-black bg-yellow-200 px-1 rounded&quot;&gt;ga&lt;/span&gt; morgen naar school.&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-green-600 mt-2&quot;&gt;Subject + &lt;b&gt;Verb&lt;/b&gt; + Time + Place.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;h3 class=&quot;font-bold text-lg mb-4&quot;&gt;Practice: Tap to reveal Dutch&lt;/h3&gt;
+                        &lt;div class=&quot;grid gap-3&quot;&gt;
+                            ${generateFlashcard(&quot;I work today.&quot;, &quot;Ik werk vandaag.&quot;)}
+                            ${generateFlashcard(&quot;He eats a sandwich.&quot;, &quot;Hij eet een broodje.&quot;)}
+                            ${generateFlashcard(&quot;We live in Amsterdam.&quot;, &quot;Wij wonen in Amsterdam.&quot;)}
+                            ${generateFlashcard(&quot;I drink coffee every morning.&quot;, &quot;Ik drink elke ochtend koffie.&quot;)}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 2,
+                type: &#x27;day&#x27;,
+                title: &quot;Day 2: Linking Sentences&quot;,
+                focus: &quot;En, Maar, Want&quot;,
+                intro: &quot;Short sentences are good, but connected sentences are better. Use &#x27;En&#x27; (and), &#x27;Maar&#x27; (but), and &#x27;Want&#x27; (because). These are safe because they DO NOT change the word order.&quot;,
+                breakdown: [
+                    { time: &quot;40 min&quot;, task: &quot;Study &#x27;En&#x27;, &#x27;Maar&#x27;, &#x27;Want&#x27;.&quot; },
+                    { time: &quot;40 min&quot;, task: &quot;Practice the &#x27;Why&#x27; question.&quot; },
+                    { time: &quot;40 min&quot;, task: &quot;Write 3 short emails.&quot; }
+                ],
+                content: `
+                    &lt;div class=&quot;bg-white p-6 rounded-xl shadow-sm border border-gray-100&quot;&gt;
+                        &lt;div class=&quot;flex flex-col md:flex-row gap-6 mb-8&quot;&gt;
+                            &lt;div class=&quot;flex-1&quot;&gt;
+                                &lt;h3 class=&quot;font-bold text-lg mb-3&quot;&gt;The Magic Connectors&lt;/h3&gt;
+                                &lt;p class=&quot;text-sm text-gray-600 mb-4&quot;&gt;These words glue two &quot;Main Sentences&quot; together without changing the grammar.&lt;/p&gt;
+                                &lt;ul class=&quot;space-y-2&quot;&gt;
+                                    &lt;li class=&quot;bg-blue-50 p-3 rounded border border-blue-100&quot;&gt;&lt;strong class=&quot;text-blue-700&quot;&gt;En (And)&lt;/strong&gt;: Ik kook &lt;span class=&quot;text-orange-500 font-bold&quot;&gt;en&lt;/span&gt; hij wast af.&lt;/li&gt;
+                                    &lt;li class=&quot;bg-blue-50 p-3 rounded border border-blue-100&quot;&gt;&lt;strong class=&quot;text-blue-700&quot;&gt;Maar (But)&lt;/strong&gt;: Ik wil komen, &lt;span class=&quot;text-orange-500 font-bold&quot;&gt;maar&lt;/span&gt; ik ben ziek.&lt;/li&gt;
+                                    &lt;li class=&quot;bg-blue-50 p-3 rounded border border-blue-100&quot;&gt;&lt;strong class=&quot;text-blue-700&quot;&gt;Want (Because)&lt;/strong&gt;: Ik ga niet, &lt;span class=&quot;text-orange-500 font-bold&quot;&gt;want&lt;/span&gt; het regent.&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;flex-1 bg-yellow-50 p-5 rounded-lg border border-yellow-100&quot;&gt;
+                                &lt;h3 class=&quot;font-bold text-yellow-800 mb-2&quot;&gt;Exam Tip: The &quot;Why&quot; Question&lt;/h3&gt;
+                                &lt;p class=&quot;text-sm text-yellow-900 mb-3&quot;&gt;If the exam asks &quot;Waarom?&quot; (Why?), always start your sentence with &lt;b&gt;&quot;Want&quot;&lt;/b&gt; or &lt;b&gt;&quot;Dat is...&quot;&lt;/b&gt;.&lt;/p&gt;
+                                &lt;div class=&quot;bg-white p-3 rounded text-sm shadow-sm&quot;&gt;
+                                    &lt;p class=&quot;italic text-gray-500 mb-1&quot;&gt;Q: Waarom wil je deze baan?&lt;/p&gt;
+                                    &lt;p class=&quot;font-bold text-green-600&quot;&gt;A: Ik vind het werk leuk.&lt;/p&gt;
+                                    &lt;p class=&quot;font-bold text-green-600 mt-1&quot;&gt;A: Want ik wil geld verdienen.&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                         &lt;h3 class=&quot;font-bold text-lg mb-4&quot;&gt;Practice: Tap to reveal&lt;/h3&gt;
+                        &lt;div class=&quot;grid gap-3&quot;&gt;
+                            ${generateFlashcard(&quot;I am happy because I have a job.&quot;, &quot;Ik ben blij, want ik heb een baan.&quot;)}
+                            ${generateFlashcard(&quot;He is nice but he talks a lot.&quot;, &quot;Hij is aardig, maar hij praat veel.&quot;)}
+                            ${generateFlashcard(&quot;I buy bread and I buy milk.&quot;, &quot;Ik koop brood en ik koop melk.&quot;)}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 3,
+                type: &#x27;day&#x27;,
+                title: &quot;Day 3: The Past Tense&quot;,
+                focus: &quot;Hebben/Zijn + Ge-...&quot;,
+                intro: &quot;You will need to talk about yesterday. Use the Perfect Tense. The pattern is: Subject + Helper (Hebben/Zijn) + Rest + PARTICIPLE (Ge-word). The Ge-word kicks to the very end!&quot;,
+                breakdown: [
+                    { time: &quot;30 min&quot;, task: &quot;Hebben vs Zijn rules.&quot; },
+                    { time: &quot;45 min&quot;, task: &quot;Memorize irregulars (Gegeten, Gedronken, Geweest).&quot; },
+                    { time: &quot;45 min&quot;, task: &quot;Write &#x27;What I did yesterday&#x27;.&quot; }
+                ],
+                content: `
+                     &lt;div class=&quot;bg-white p-6 rounded-xl shadow-sm border border-gray-100&quot;&gt;
+                        &lt;div class=&quot;p-4 bg-gray-100 rounded-lg text-center mb-6&quot;&gt;
+                            &lt;span class=&quot;block text-2xl font-bold text-gray-700 mb-1&quot;&gt;Subject + &lt;span class=&quot;text-blue-600&quot;&gt;Hebben&lt;/span&gt; + ... + &lt;span class=&quot;text-red-600&quot;&gt;Ge-Verb&lt;/span&gt;&lt;/span&gt;
+                            &lt;span class=&quot;text-xs text-gray-500 uppercase tracking-widest&quot;&gt;The Burger Formula (Meat is at the end)&lt;/span&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-4 mb-6&quot;&gt;
+                            &lt;div class=&quot;border p-4 rounded-lg&quot;&gt;
+                                &lt;h4 class=&quot;font-bold text-sm uppercase text-gray-500 mb-2&quot;&gt;Regular Examples&lt;/h4&gt;
+                                &lt;ul class=&quot;text-sm space-y-2&quot;&gt;
+                                    &lt;li&gt;Ik &lt;b class=&quot;text-blue-600&quot;&gt;heb&lt;/b&gt; gisteren &lt;b class=&quot;text-red-600&quot;&gt;gewerkt&lt;/b&gt;. (Worked)&lt;/li&gt;
+                                    &lt;li&gt;Ik &lt;b class=&quot;text-blue-600&quot;&gt;heb&lt;/b&gt; fiets &lt;b class=&quot;text-red-600&quot;&gt;gespeeld&lt;/b&gt;. (Played)&lt;/li&gt;
+                                    &lt;li&gt;Ik &lt;b class=&quot;text-blue-600&quot;&gt;heb&lt;/b&gt; een film &lt;b class=&quot;text-red-600&quot;&gt;gekeken&lt;/b&gt;. (Watched)&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                             &lt;div class=&quot;border p-4 rounded-lg&quot;&gt;
+                                &lt;h4 class=&quot;font-bold text-sm uppercase text-gray-500 mb-2&quot;&gt;Must-Know Irregulars&lt;/h4&gt;
+                                &lt;ul class=&quot;text-sm space-y-2&quot;&gt;
+                                    &lt;li class=&quot;flex justify-between&quot;&gt;&lt;span&gt;To Eat&lt;/span&gt; &lt;span class=&quot;font-bold&quot;&gt;Gegeten&lt;/span&gt;&lt;/li&gt;
+                                    &lt;li class=&quot;flex justify-between&quot;&gt;&lt;span&gt;To Drink&lt;/span&gt; &lt;span class=&quot;font-bold&quot;&gt;Gedronken&lt;/span&gt;&lt;/li&gt;
+                                    &lt;li class=&quot;flex justify-between&quot;&gt;&lt;span&gt;To Buy&lt;/span&gt; &lt;span class=&quot;font-bold&quot;&gt;Gekocht&lt;/span&gt;&lt;/li&gt;
+                                    &lt;li class=&quot;flex justify-between&quot;&gt;&lt;span&gt;To Go*&lt;/span&gt; &lt;span class=&quot;font-bold text-orange-600&quot;&gt;Is Gegaan&lt;/span&gt;&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        
+                         &lt;h3 class=&quot;font-bold text-lg mb-4&quot;&gt;Practice: Tap to reveal&lt;/h3&gt;
+                        &lt;div class=&quot;grid gap-3&quot;&gt;
+                            ${generateFlashcard(&quot;I worked yesterday.&quot;, &quot;Ik heb gisteren gewerkt.&quot;)}
+                            ${generateFlashcard(&quot;We bought a house.&quot;, &quot;Wij hebben een huis gekocht.&quot;)}
+                            ${generateFlashcard(&quot;I went to the park.&quot;, &quot;Ik ben naar het park gegaan.&quot;)}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 4,
+                type: &#x27;day&#x27;,
+                title: &quot;Day 4: Emails - Party &amp; Invite&quot;,
+                focus: &quot;Tone: Informal (Jij/Je)&quot;,
+                intro: &quot;A classic exam question: Invite a friend to a party, or accept an invitation. Keep it informal. Use &#x27;Jij&#x27; and &#x27;Je&#x27;. Short sentences work best.&quot;,
+                breakdown: [
+                    { time: &quot;30 min&quot;, task: &quot;Learn informal greetings.&quot; },
+                    { time: &quot;45 min&quot;, task: &quot;Memorize the &#x27;Party Phrases&#x27; (Memory Bank).&quot; },
+                    { time: &quot;45 min&quot;, task: &quot;Write an invitation email.&quot; }
+                ],
+                content: `
+                    &lt;div class=&quot;bg-white p-6 rounded-xl shadow-sm border border-gray-100&quot;&gt;
+                        &lt;h2 class=&quot;text-xl font-bold text-gray-800 mb-4&quot;&gt;Scenario: The Invitation&lt;/h2&gt;
+                        &lt;div class=&quot;bg-green-50 p-4 rounded-lg border border-green-100 mb-6&quot;&gt;
+                            &lt;h4 class=&quot;font-bold text-green-800 mb-2&quot;&gt;Key Phrases (Memorize these!)&lt;/h4&gt;
+                            &lt;ul class=&quot;grid grid-cols-1 md:grid-cols-2 gap-2 text-sm&quot;&gt;
+                                &lt;li&gt;🎈 &lt;b&gt;Ik geef een feestje.&lt;/b&gt; (I give a party)&lt;/li&gt;
+                                &lt;li&gt;📅 &lt;b&gt;Het is op zaterdag.&lt;/b&gt; (It is on Saturday)&lt;/li&gt;
+                                &lt;li&gt;❓ &lt;b&gt;Kom je ook?&lt;/b&gt; (Are you coming too?)&lt;/li&gt;
+                                &lt;li&gt;🕙 &lt;b&gt;Het begint om 20:00 uur.&lt;/b&gt; (It starts at 20:00)&lt;/li&gt;
+                                &lt;li&gt;🎁 &lt;b&gt;Ik neem een cadeau mee.&lt;/b&gt; (I bring a gift)&lt;/li&gt;
+                                &lt;li&gt;✅ &lt;b&gt;Ik kom graag!&lt;/b&gt; (I&#x27;d love to come)&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+
+                        &lt;h3 class=&quot;font-bold text-lg mb-3&quot;&gt;Template: Invitation Email&lt;/h3&gt;
+                        &lt;div class=&quot;bg-gray-50 border-l-4 border-gray-400 p-4 font-mono text-sm&quot;&gt;
+                            &lt;p&gt;Hoi Sarah,&lt;/p&gt;&lt;br&gt;
+                            &lt;p&gt;Hoe gaat het?&lt;/p&gt;
+                            &lt;p&gt;Ik ben jarig op zaterdag.&lt;/p&gt;
+                            &lt;p&gt;Ik geef een feestje.&lt;/p&gt;
+                            &lt;p&gt;Ik wil je uitnodigen.&lt;/p&gt;
+                            &lt;p&gt;Het feest begint om 20:00 uur.&lt;/p&gt;
+                            &lt;p&gt;Kom je ook?&lt;/p&gt;&lt;br&gt;
+                            &lt;p&gt;Groetjes,&lt;/p&gt;
+                            &lt;p&gt;[Name]&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 5,
+                type: &#x27;day&#x27;,
+                title: &quot;Day 5: Problems - Sick &amp; House&quot;,
+                focus: &quot;Reporting problems simply&quot;,
+                intro: &quot;Something is broken or you are sick. You need to explain the problem and ask for a solution. Don&#x27;t over-explain. Just state facts.&quot;,
+                breakdown: [
+                    { time: &quot;30 min&quot;, task: &quot;Memorize &#x27;Sick&#x27; phrases.&quot; },
+                    { time: &quot;45 min&quot;, task: &quot;Memorize &#x27;Housing&#x27; phrases.&quot; },
+                    { time: &quot;45 min&quot;, task: &quot;Write a &#x27;Cancel Appointment&#x27; email.&quot; }
+                ],
+                content: `
+                    &lt;div class=&quot;bg-white p-6 rounded-xl shadow-sm border border-gray-100&quot;&gt;
+                        &lt;h2 class=&quot;text-xl font-bold text-gray-800 mb-4&quot;&gt;Scenario 1: You are Sick&lt;/h2&gt;
+                        &lt;p class=&quot;text-sm text-gray-500 mb-4&quot;&gt;You have an appointment or class, but you cannot go.&lt;/p&gt;
+                        &lt;div class=&quot;grid gap-3 mb-8&quot;&gt;
+                             ${generateFlashcard(&quot;I am sick.&quot;, &quot;Ik ben ziek.&quot;)}
+                             ${generateFlashcard(&quot;I have a fever.&quot;, &quot;Ik heb koorts.&quot;)}
+                             ${generateFlashcard(&quot;I cannot come today.&quot;, &quot;Ik kan vandaag niet komen.&quot;)}
+                             ${generateFlashcard(&quot;Can we make a new appointment?&quot;, &quot;Kunnen we een nieuwe afspraak maken?&quot;)}
+                        &lt;/div&gt;
+
+                        &lt;h2 class=&quot;text-xl font-bold text-gray-800 mb-4&quot;&gt;Scenario 2: Broken House&lt;/h2&gt;
+                        &lt;p class=&quot;text-sm text-gray-500 mb-4&quot;&gt;Write to a landlord or neighbor.&lt;/p&gt;
+                        &lt;div class=&quot;grid gap-3&quot;&gt;
+                             ${generateFlashcard(&quot;The window is broken.&quot;, &quot;Het raam is kapot.&quot;)}
+                             ${generateFlashcard(&quot;The heating does not work.&quot;, &quot;De verwarming doet het niet.&quot;)}
+                             ${generateFlashcard(&quot;There is a leak.&quot;, &quot;Er is een lekkage.&quot;)}
+                             ${generateFlashcard(&quot;Can you help me?&quot;, &quot;Kunt u mij helpen?&quot;)}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 6,
+                type: &#x27;day&#x27;,
+                title: &quot;Day 6: Work &amp; Formal Emails&quot;,
+                focus: &quot;Tone: Formal (U/Uw)&quot;,
+                intro: &quot;Writing to a boss or a company. Use &#x27;U&#x27; instead of &#x27;Jij&#x27;. Keep it polite but short. Ask for permission or information.&quot;,
+                breakdown: [
+                    { time: &quot;30 min&quot;, task: &quot;Formal greetings.&quot; },
+                    { time: &quot;45 min&quot;, task: &quot;Asking for vacation.&quot; },
+                    { time: &quot;45 min&quot;, task: &quot;Asking for a job.&quot; }
+                ],
+                content: `
+                    &lt;div class=&quot;bg-white p-6 rounded-xl shadow-sm border border-gray-100&quot;&gt;
+                        &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-6 mb-6&quot;&gt;
+                            &lt;!-- Job Application --&gt;
+                            &lt;div class=&quot;bg-purple-50 p-4 rounded-lg border border-purple-100&quot;&gt;
+                                &lt;h3 class=&quot;font-bold text-purple-900 mb-3&quot;&gt;Topic: Applying for a Job&lt;/h3&gt;
+                                &lt;ul class=&quot;space-y-2 text-sm&quot;&gt;
+                                    &lt;li&gt;&lt;b&gt;Ik zoek een baan.&lt;/b&gt; (I&#x27;m looking for a job)&lt;/li&gt;
+                                    &lt;li&gt;&lt;b&gt;Ik heb ervaring.&lt;/b&gt; (I have experience)&lt;/li&gt;
+                                    &lt;li&gt;&lt;b&gt;Ik wil graag werken.&lt;/b&gt; (I would like to work)&lt;/li&gt;
+                                    &lt;li&gt;&lt;b&gt;Ik ben precies en netjes.&lt;/b&gt; (I am precise and tidy)&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                            &lt;!-- Vacation --&gt;
+                            &lt;div class=&quot;bg-purple-50 p-4 rounded-lg border border-purple-100&quot;&gt;
+                                &lt;h3 class=&quot;font-bold text-purple-900 mb-3&quot;&gt;Topic: Vacation Request&lt;/h3&gt;
+                                &lt;ul class=&quot;space-y-2 text-sm&quot;&gt;
+                                    &lt;li&gt;&lt;b&gt;Ik wil vrij vragen.&lt;/b&gt; (I want to ask for time off)&lt;/li&gt;
+                                    &lt;li&gt;&lt;b&gt;Ik ga op vakantie.&lt;/b&gt; (I am going on vacation)&lt;/li&gt;
+                                    &lt;li&gt;&lt;b&gt;Van 1 juli tot 15 juli.&lt;/b&gt; (From... to...)&lt;/li&gt;
+                                    &lt;li&gt;&lt;b&gt;Is dat mogelijk?&lt;/b&gt; (Is that possible?)&lt;/li&gt;
+                                &lt;/ul&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;h3 class=&quot;font-bold text-lg mb-3&quot;&gt;Formal Structure&lt;/h3&gt;
+                        &lt;div class=&quot;bg-gray-50 border-l-4 border-purple-500 p-4 font-mono text-sm&quot;&gt;
+                            &lt;p&gt;Geachte meneer Jansen,&lt;/p&gt;&lt;br&gt;
+                            &lt;p&gt;Ik heb een vraag.&lt;/p&gt;
+                            &lt;p&gt;Ik wil graag vakantie opnemen.&lt;/p&gt;
+                            &lt;p&gt;Ik wil vrij van maandag tot vrijdag.&lt;/p&gt;
+                            &lt;p&gt;Kan dat?&lt;/p&gt;&lt;br&gt;
+                            &lt;p&gt;Met vriendelijke groet,&lt;/p&gt;
+                            &lt;p&gt;[Name]&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 7,
+                type: &#x27;day&#x27;,
+                title: &quot;Day 7: Exam Strategy &amp; Generic Answers&quot;,
+                focus: &quot;Survival Mode&quot;,
+                intro: &quot;What if you don&#x27;t know the answer? Use generic sentences that work everywhere. Also, time management is key.&quot;,
+                breakdown: [
+                    { time: &quot;40 min&quot;, task: &quot;Memorize generic opinions.&quot; },
+                    { time: &quot;40 min&quot;, task: &quot;Simulated Exam (write 4 sentences per topic).&quot; },
+                    { time: &quot;40 min&quot;, task: &quot;Review your mistakes.&quot; }
+                ],
+                content: `
+                    &lt;div class=&quot;bg-white p-6 rounded-xl shadow-sm border border-gray-100&quot;&gt;
+                        &lt;h2 class=&quot;text-xl font-bold text-gray-800 mb-4 text-orange-600&quot;&gt;The &quot;I Don&#x27;t Know&quot; Survival Kit&lt;/h2&gt;
+                        &lt;p class=&quot;mb-6 text-sm text-gray-600&quot;&gt;Use these sentences when you are stuck. They fit almost any &quot;Opinion&quot; question.&lt;/p&gt;
+                        
+                        &lt;div class=&quot;grid grid-cols-1 sm:grid-cols-2 gap-4&quot;&gt;
+                            &lt;div class=&quot;bg-white p-4 border rounded shadow-sm hover:shadow-md transition&quot;&gt;
+                                &lt;p class=&quot;text-xs font-bold text-gray-400 uppercase mb-1&quot;&gt;Generic Positive&lt;/p&gt;
+                                &lt;p class=&quot;font-bold text-lg text-green-700&quot;&gt;Ik vind dat een goed idee.&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-gray-500&quot;&gt;I think that&#x27;s a good idea.&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;bg-white p-4 border rounded shadow-sm hover:shadow-md transition&quot;&gt;
+                                &lt;p class=&quot;text-xs font-bold text-gray-400 uppercase mb-1&quot;&gt;Generic Fun&lt;/p&gt;
+                                &lt;p class=&quot;font-bold text-lg text-green-700&quot;&gt;Ik vind dat leuk.&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-gray-500&quot;&gt;I find that fun/nice.&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;bg-white p-4 border rounded shadow-sm hover:shadow-md transition&quot;&gt;
+                                &lt;p class=&quot;text-xs font-bold text-gray-400 uppercase mb-1&quot;&gt;Generic Agreement&lt;/p&gt;
+                                &lt;p class=&quot;font-bold text-lg text-green-700&quot;&gt;Ik ben het ermee eens.&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-gray-500&quot;&gt;I agree with it.&lt;/p&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;bg-white p-4 border rounded shadow-sm hover:shadow-md transition&quot;&gt;
+                                &lt;p class=&quot;text-xs font-bold text-gray-400 uppercase mb-1&quot;&gt;Generic Action&lt;/p&gt;
+                                &lt;p class=&quot;font-bold text-lg text-green-700&quot;&gt;Ik ga dat doen.&lt;/p&gt;
+                                &lt;p class=&quot;text-xs text-gray-500&quot;&gt;I am going to do that.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class=&quot;mt-8 p-4 bg-orange-50 rounded border border-orange-100&quot;&gt;
+                            &lt;h3 class=&quot;font-bold text-orange-900 mb-2&quot;&gt;Final Checklist before handing in:&lt;/h3&gt;
+                            &lt;ul class=&quot;list-disc pl-5 text-sm text-orange-800 space-y-1&quot;&gt;
+                                &lt;li&gt;Did I start with a Capital letter?&lt;/li&gt;
+                                &lt;li&gt;Is the Verb in position 2?&lt;/li&gt;
+                                &lt;li&gt;Did I end with a period?&lt;/li&gt;
+                                &lt;li&gt;Did I answer the question? (Check the &#x27;Wh&#x27; word: Waarom? Wanneer? Wie?)&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            },
+            {
+                id: 8,
+                type: &#x27;resource&#x27;,
+                title: &quot;The Memory Bank&quot;,
+                focus: &quot;All Key Sentences in One Place&quot;,
+                intro: &quot;This is your ultimate cheat sheet. If you memorize these simple sentences, you can pass almost any scenario. Click on the cards to test yourself!&quot;,
+                breakdown: [], // No breakdown for resource
+                content: `
+                    &lt;div class=&quot;bg-white p-6 rounded-xl shadow-sm border border-gray-100&quot;&gt;
+                        &lt;div class=&quot;flex justify-between items-center mb-6&quot;&gt;
+                            &lt;h2 class=&quot;text-2xl font-bold text-gray-800&quot;&gt;The Memory Bank&lt;/h2&gt;
+                            &lt;button onclick=&quot;toggleAllCards()&quot; class=&quot;text-xs bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded font-bold text-gray-700&quot;&gt;Toggle All Answers&lt;/button&gt;
+                        &lt;/div&gt;
+                        
+                        &lt;div class=&quot;space-y-8&quot;&gt;
+                            
+                            &lt;!-- Section: Everyday --&gt;
+                            &lt;div&gt;
+                                &lt;h3 class=&quot;font-bold text-lg text-orange-600 border-b border-orange-100 pb-2 mb-4&quot;&gt;1. Everyday Essentials&lt;/h3&gt;
+                                &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-3&quot;&gt;
+                                    ${generateFlashcard(&quot;I have a question.&quot;, &quot;Ik heb een vraag.&quot;)}
+                                    ${generateFlashcard(&quot;I need help.&quot;, &quot;Ik heb hulp nodig.&quot;)}
+                                    ${generateFlashcard(&quot;Can you help me?&quot;, &quot;Kunt u mij helpen?&quot;)}
+                                    ${generateFlashcard(&quot;I am very happy.&quot;, &quot;Ik ben erg blij.&quot;)}
+                                    ${generateFlashcard(&quot;I think it&#x27;s a pity.&quot;, &quot;Ik vind het jammer.&quot;)}
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+
+                            &lt;!-- Section: Sickness --&gt;
+                            &lt;div&gt;
+                                &lt;h3 class=&quot;font-bold text-lg text-orange-600 border-b border-orange-100 pb-2 mb-4&quot;&gt;2. Being Sick / Late&lt;/h3&gt;
+                                &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-3&quot;&gt;
+                                    ${generateFlashcard(&quot;I am sick.&quot;, &quot;Ik ben ziek.&quot;)}
+                                    ${generateFlashcard(&quot;I have a fever.&quot;, &quot;Ik heb koorts.&quot;)}
+                                    ${generateFlashcard(&quot;I cannot come.&quot;, &quot;Ik kan niet komen.&quot;)}
+                                    ${generateFlashcard(&quot;I am coming later.&quot;, &quot;Ik kom later.&quot;)}
+                                    ${generateFlashcard(&quot;I am 10 minutes late.&quot;, &quot;Ik ben 10 minuten te laat.&quot;)}
+                                    ${generateFlashcard(&quot;I&#x27;m going to the doctor.&quot;, &quot;Ik ga naar de dokter.&quot;)}
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+
+                            &lt;!-- Section: Invitations --&gt;
+                            &lt;div&gt;
+                                &lt;h3 class=&quot;font-bold text-lg text-orange-600 border-b border-orange-100 pb-2 mb-4&quot;&gt;3. Invitations &amp; Parties&lt;/h3&gt;
+                                &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-3&quot;&gt;
+                                    ${generateFlashcard(&quot;I am giving a party.&quot;, &quot;Ik geef een feestje.&quot;)}
+                                    ${generateFlashcard(&quot;Are you coming too?&quot;, &quot;Kom je ook?&quot;)}
+                                    ${generateFlashcard(&quot;It starts at 8 o&#x27;clock.&quot;, &quot;Het begint om acht uur.&quot;)}
+                                    ${generateFlashcard(&quot;I&#x27;d love to come.&quot;, &quot;Ik kom graag.&quot;)}
+                                    ${generateFlashcard(&quot;Thanks for the invite.&quot;, &quot;Bedankt voor de uitnodiging.&quot;)}
+                                    ${generateFlashcard(&quot;Congratulations!&quot;, &quot;Gefeliciteerd!&quot;)}
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+
+                            &lt;!-- Section: Housing --&gt;
+                            &lt;div&gt;
+                                &lt;h3 class=&quot;font-bold text-lg text-orange-600 border-b border-orange-100 pb-2 mb-4&quot;&gt;4. Housing &amp; Neighbors&lt;/h3&gt;
+                                &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-3&quot;&gt;
+                                    ${generateFlashcard(&quot;The heating is broken.&quot;, &quot;De verwarming is kapot.&quot;)}
+                                    ${generateFlashcard(&quot;The lamp doesn&#x27;t work.&quot;, &quot;De lamp doet het niet.&quot;)}
+                                    ${generateFlashcard(&quot;My window is broken.&quot;, &quot;Mijn raam is stuk.&quot;)}
+                                    ${generateFlashcard(&quot;It is too cold in house.&quot;, &quot;Het is te koud in huis.&quot;)}
+                                    ${generateFlashcard(&quot;Sorry for the noise.&quot;, &quot;Sorry voor het geluid.&quot;)}
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+
+                             &lt;!-- Section: Work --&gt;
+                            &lt;div&gt;
+                                &lt;h3 class=&quot;font-bold text-lg text-orange-600 border-b border-orange-100 pb-2 mb-4&quot;&gt;5. Work &amp; Career&lt;/h3&gt;
+                                &lt;div class=&quot;grid grid-cols-1 md:grid-cols-2 gap-3&quot;&gt;
+                                    ${generateFlashcard(&quot;I am looking for a job.&quot;, &quot;Ik zoek een baan.&quot;)}
+                                    ${generateFlashcard(&quot;I have experience.&quot;, &quot;Ik heb ervaring.&quot;)}
+                                    ${generateFlashcard(&quot;What is the salary?&quot;, &quot;Wat is het salaris?&quot;)}
+                                    ${generateFlashcard(&quot;I want vacation.&quot;, &quot;Ik wil vakantie.&quot;)}
+                                    ${generateFlashcard(&quot;I work in the morning.&quot;, &quot;Ik werk in de ochtend.&quot;)}
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `
+            }
+        ];
+
+        // Helper to generate flashcard HTML string
+        function generateFlashcard(eng, dutch) {
+            const id = &#x27;fc-&#x27; + Math.random().toString(36).substr(2, 9);
+            return `
+            &lt;div class=&quot;flashcard bg-white border border-gray-200 rounded-lg p-4 cursor-pointer hover:shadow-md transition-all duration-200 relative group&quot; onclick=&quot;toggleAnswer(&#x27;${id}&#x27;)&quot;&gt;
+                &lt;div class=&quot;flex justify-between items-center mb-1&quot;&gt;
+                    &lt;span class=&quot;text-gray-500 font-medium text-sm&quot;&gt;🇬🇧 ${eng}&lt;/span&gt;
+                    &lt;span class=&quot;text-xs text-orange-400 bg-orange-50 px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity&quot;&gt;Reveal&lt;/span&gt;
+                &lt;/div&gt;
+                &lt;div id=&quot;${id}&quot; class=&quot;hidden mt-2 pt-2 border-t border-gray-100&quot;&gt;
+                    &lt;span class=&quot;text-lg font-bold text-gray-800&quot;&gt;🇳🇱 ${dutch}&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            `;
+        }
+
+        // --- State ---
+        let currentDayId = 1;
+        let completedDays = [false, false, false, false, false, false, false, false]; // Added one for resource
+        let allRevealed = false;
+
+        // --- DOM Elements ---
+        const dayListEl = document.getElementById(&#x27;dayList&#x27;);
+        const resourceListEl = document.getElementById(&#x27;resourceList&#x27;);
+        const contentAreaEl = document.getElementById(&#x27;contentArea&#x27;);
+        const progressBarEl = document.getElementById(&#x27;progressBar&#x27;);
+        const mobileSelector = document.getElementById(&#x27;mobileDaySelector&#x27;);
+
+        // --- Initialization ---
+        function init() {
+            renderNav();
+            renderContent(1);
+            initCharts();
+        }
+
+        // --- Render Functions ---
+        function renderNav() {
+            dayListEl.innerHTML = &#x27;&#x27;;
+            resourceListEl.innerHTML = &#x27;&#x27;;
+            mobileSelector.innerHTML = &#x27;&#x27;;
+
+            courseData.forEach((item, index) =&gt; {
+                const li = document.createElement(&#x27;li&#x27;);
+                const isCompleted = completedDays[index];
+                const isActive = item.id === currentDayId;
+                
+                let iconOrNumber = item.id;
+                if(item.type === &#x27;resource&#x27;) iconOrNumber = &#x27;★&#x27;;
+
+                li.className = `p-3 rounded-lg cursor-pointer text-sm flex items-center justify-between group transition-all duration-200 ${isActive ? &#x27;bg-orange-50 text-orange-900 font-bold shadow-sm&#x27; : &#x27;hover:bg-gray-50 text-gray-600&#x27;}`;
+                
+                li.innerHTML = `
+                    &lt;div class=&quot;flex items-center&quot;&gt;
+                        &lt;span class=&quot;w-6 h-6 rounded-full flex items-center justify-center text-xs mr-3 font-bold transition-colors ${
+                            isActive ? &#x27;bg-orange-200 text-orange-800&#x27; : 
+                            (isCompleted ? &#x27;bg-green-100 text-green-600&#x27; : &#x27;bg-gray-100 text-gray-400&#x27;)
+                        }&quot;&gt;
+                            ${isCompleted ? &#x27;✓&#x27; : iconOrNumber}
+                        &lt;/span&gt;
+                        &lt;span&gt;${item.title}&lt;/span&gt;
+                    &lt;/div&gt;
+                `;
+                li.onclick = () =&gt; renderContent(item.id);
+
+                if (item.type === &#x27;day&#x27;) {
+                    dayListEl.appendChild(li);
+                } else {
+                    resourceListEl.appendChild(li);
+                }
+
+                // Mobile Dropdown
+                const option = document.createElement(&#x27;option&#x27;);
+                option.value = item.id;
+                option.text = item.title;
+                mobileSelector.appendChild(option);
+            });
+
+            // Sync Mobile Selector
+            mobileSelector.value = currentDayId;
+            mobileSelector.onchange = (e) =&gt; renderContent(parseInt(e.target.value));
+
+            // Update Progress Bar
+            const completedCount = completedDays.filter(Boolean).length;
+            const percentage = (completedCount / courseData.length) * 100;
+            progressBarEl.style.width = `${percentage}%`;
+        }
+
+        function renderContent(id) {
+            currentDayId = id;
+            const data = courseData.find(d =&gt; d.id === id);
+            
+            // Build Breakdown HTML
+            let breakdownHTML = &#x27;&#x27;;
+            if (data.breakdown &amp;&amp; data.breakdown.length &gt; 0) {
+                 breakdownHTML = `
+                    &lt;div class=&quot;bg-white p-6 rounded-xl shadow-sm border border-gray-100 h-full&quot;&gt;
+                        &lt;h3 class=&quot;font-bold text-gray-800 mb-4 text-xs uppercase tracking-wide&quot;&gt;Today&#x27;s Schedule&lt;/h3&gt;
+                        &lt;div class=&quot;flex flex-col space-y-3&quot;&gt;
+                             ${data.breakdown.map(item =&gt; `
+                                &lt;div class=&quot;flex items-start text-sm&quot;&gt;
+                                    &lt;span class=&quot;w-16 font-mono text-xs text-orange-500 bg-orange-50 px-1 py-0.5 rounded mr-3 mt-0.5 text-center shrink-0&quot;&gt;${item.time}&lt;/span&gt;
+                                    &lt;span class=&quot;text-gray-600&quot;&gt;${item.task}&lt;/span&gt;
+                                &lt;/div&gt;
+                             `).join(&#x27;&#x27;)}
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                `;
+            }
+
+            const headerHtml = `
+                &lt;div class=&quot;flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6&quot;&gt;
+                    &lt;div&gt;
+                        &lt;span class=&quot;text-orange-600 font-bold uppercase tracking-wide text-[10px] mb-1 block&quot;&gt;${data.type === &#x27;resource&#x27; ? &#x27;Resource&#x27; : &#x27;Day &#x27; + data.id}&lt;/span&gt;
+                        &lt;h2 class=&quot;text-3xl font-bold text-gray-900 tracking-tight&quot;&gt;${data.title}&lt;/h2&gt;
+                        &lt;p class=&quot;text-gray-500 font-medium mt-1&quot;&gt;${data.focus}&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;button onclick=&quot;markComplete(${data.id})&quot; class=&quot;px-5 py-2.5 rounded-lg shadow-sm text-sm font-bold transition flex items-center gap-2 ${completedDays[data.id-1] ? &#x27;bg-green-100 text-green-700 border border-green-200&#x27; : &#x27;bg-gray-800 text-white hover:bg-gray-700 hover:shadow-md&#x27;}&quot;&gt;
+                        ${completedDays[data.id-1] ? &#x27;&lt;span&gt;✓&lt;/span&gt; Completed&#x27; : &#x27;&lt;span&gt;○&lt;/span&gt; Mark as Done&#x27;}
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            `;
+
+            const introHtml = `
+                &lt;div class=&quot;grid grid-cols-1 md:grid-cols-3 gap-6 mb-8&quot;&gt;
+                    &lt;div class=&quot;md:col-span-2 bg-gradient-to-br from-white to-gray-50 p-6 rounded-xl shadow-sm border border-gray-100 relative overflow-hidden&quot;&gt;
+                        &lt;div class=&quot;relative z-10&quot;&gt;
+                            &lt;h3 class=&quot;font-bold text-gray-800 mb-2&quot;&gt;Strategy&lt;/h3&gt;
+                            &lt;p class=&quot;text-gray-600 text-sm leading-relaxed&quot;&gt;${data.intro}&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;absolute right-0 top-0 w-32 h-32 bg-orange-100 rounded-full blur-3xl opacity-20 -mr-10 -mt-10&quot;&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    ${breakdownHTML ? `&lt;div&gt;${breakdownHTML}&lt;/div&gt;` : &#x27;&#x27;}
+                &lt;/div&gt;
+            `;
+
+            contentAreaEl.innerHTML = headerHtml + (data.breakdown.length &gt; 0 ? introHtml : `&lt;p class=&quot;mb-6 text-gray-600&quot;&gt;${data.intro}&lt;/p&gt;`) + data.content;
+            
+            renderNav();
+            
+            // Reset scroll to top of content
+            document.getElementById(&#x27;mainScroll&#x27;).scrollTop = 0;
+            allRevealed = false;
+        }
+
+        function markComplete(id) {
+            // Find index of this id
+            const idx = courseData.findIndex(d =&gt; d.id === id);
+            if (idx !== -1) {
+                completedDays[idx] = !completedDays[idx];
+                renderNav();
+                renderContent(id); // Re-render to update button state
+            }
+        }
+
+        // Global function for the flashcard toggles
+        window.toggleAnswer = function(id) {
+            const el = document.getElementById(id);
+            if(el.classList.contains(&#x27;hidden&#x27;)) {
+                el.classList.remove(&#x27;hidden&#x27;);
+                el.parentElement.classList.add(&#x27;border-orange-200&#x27;, &#x27;bg-orange-50&#x27;);
+            } else {
+                el.classList.add(&#x27;hidden&#x27;);
+                el.parentElement.classList.remove(&#x27;border-orange-200&#x27;, &#x27;bg-orange-50&#x27;);
+            }
+        }
+
+        // Toggle all for Memory Bank
+        window.toggleAllCards = function() {
+            const answers = document.querySelectorAll(&#x27;.flashcard div[id^=&quot;fc-&quot;]&#x27;);
+            allRevealed = !allRevealed;
+            answers.forEach(ans =&gt; {
+                if(allRevealed) {
+                    ans.classList.remove(&#x27;hidden&#x27;);
+                    ans.parentElement.classList.add(&#x27;border-orange-200&#x27;, &#x27;bg-orange-50&#x27;);
+                } else {
+                    ans.classList.add(&#x27;hidden&#x27;);
+                    ans.parentElement.classList.remove(&#x27;border-orange-200&#x27;, &#x27;bg-orange-50&#x27;);
+                }
+            });
+        }
+
+        // --- Charts ---
+        function initCharts() {
+            const ctx = document.getElementById(&#x27;examScoreChart&#x27;).getContext(&#x27;2d&#x27;);
+            new Chart(ctx, {
+                type: &#x27;doughnut&#x27;,
+                data: {
+                    labels: [&#x27;Content (Inhoud)&#x27;, &#x27;Grammar&#x27;, &#x27;Vocab&#x27;],
+                    datasets: [{
+                        data: [40, 30, 30],
+                        backgroundColor: [&#x27;#f97316&#x27;, &#x27;#4b5563&#x27;, &#x27;#9ca3af&#x27;],
+                        borderWidth: 0,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) { return context.label + &#x27;: &#x27; + context.raw + &#x27;%&#x27;; }
+                            },
+                            backgroundColor: &#x27;#1f2937&#x27;,
+                            padding: 10
+                        }
+                    },
+                    cutout: &#x27;75%&#x27;,
+                }
+            });
+        }
+
+        // Start App
+        init();
+
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;"></iframe>
+</section>
+<section class="section">
+  <header>
+    <div class="title">A2 Schrijven - Examen Voorbereiding.html</div>
+    <div class="filemeta">Embedded via <code>&lt;iframe srcdoc&gt;</code> to keep original markup, styles, and scripts intact.</div>
+  </header>
+  <iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;!-- saved from url=(0102)file:///C:/Users/jaing/OneDrive%20-%20Nouryon%20Specialty%20Chemicals%20B.V/Desktop/memory%20bank.html --&gt;
+&lt;html lang=&quot;nl&quot;&gt;&lt;head&gt;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt;
+    
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;A2 Schrijven - Examen Voorbereiding&lt;/title&gt;
+    &lt;script src=&quot;./A2 Schrijven - Examen Voorbereiding_files/saved_resource&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;./A2 Schrijven - Examen Voorbereiding_files/chart.js.download&quot;&gt;&lt;/script&gt;
+    &lt;link href=&quot;./A2 Schrijven - Examen Voorbereiding_files/css2&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;style&gt;
+        body { font-family: &#x27;Inter&#x27;, sans-serif; background-color: #fdfbf7; }
+        .chart-container { position: relative; width: 100%; max-width: 400px; margin: 0 auto; height: 300px; }
+        .flashcard-inner { transition: transform 0.6s; transform-style: preserve-3d; }
+        .tab-active { border-bottom: 2px solid #d97706; color: #d97706; font-weight: 700; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    &lt;/style&gt;
+    &lt;!-- Chosen Palette: Warm Autumn Focus --&gt;
+    &lt;!-- Application Structure Plan: De applicatie is opgezet als een interactief dashboard. De gebruiker kan schakelen tussen de &#x27;7-Day Strategy&#x27; voor een gestructureerde planning en de &#x27;Memory Bank&#x27; voor snelle toegang tot alle belangrijke zinnen. Dit is gekozen omdat een beginner behoefte heeft aan zowel structuur (wat doe ik wanneer?) als een naslagwerk (hoe zeg ik dit?). De interface is minimalistisch om de cognitieve belasting te verlagen. --&gt;
+    &lt;!-- Visualization &amp; Content Choices: 
+        1. Score Verdeling (Doughnut Chart): Om visueel te laten zien dat inhoud (content) belangrijker is dan perfecte grammatica.
+        2. Flashcards (JS Interactie): Voor de Memory Bank om actief herinneren (active recall) te stimuleren.
+        3. Voortgangstracker: Om de gebruiker te motiveren tijdens de 2 uur per dag.
+        CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. 
+    --&gt;
+&lt;style&gt;*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:&#x27;&#x27;}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, &quot;Liberation Mono&quot;, &quot;Courier New&quot;, monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mt-1{margin-top:0.25rem}.mt-12{margin-top:3rem}.mt-2{margin-top:0.5rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-screen{height:100vh}.h-32{height:8rem}.h-full{height:100%}.w-full{width:100%}.max-w-5xl{max-width:64rem}.max-w-6xl{max-width:72rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.overflow-hidden{overflow:hidden}.overflow-x-auto{overflow-x:auto}.overflow-y-auto{overflow-y:auto}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-b{border-bottom-width:1px}.border-l-2{border-left-width:2px}.border-l-4{border-left-width:4px}.border-t{border-top-width:1px}.border-gray-100{--tw-border-opacity:1;border-color:rgb(243 244 246 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-orange-500{--tw-border-opacity:1;border-color:rgb(249 115 22 / var(--tw-border-opacity, 1))}.border-orange-600{--tw-border-opacity:1;border-color:rgb(234 88 12 / var(--tw-border-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.bg-orange-50{--tw-bg-opacity:1;background-color:rgb(255 247 237 / var(--tw-bg-opacity, 1))}.bg-orange-600{--tw-bg-opacity:1;background-color:rgb(234 88 12 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-orange-100{--tw-bg-opacity:1;background-color:rgb(255 237 213 / var(--tw-bg-opacity, 1))}.p-1{padding:0.25rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.p-5{padding:1.25rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-4{padding-left:1rem;padding-right:1rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.pb-4{padding-bottom:1rem}.pl-4{padding-left:1rem}.text-center{text-align:center}.text-right{text-align:right}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-\[9px\]{font-size:9px}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.tracking-tight{letter-spacing:-0.025em}.tracking-widest{letter-spacing:0.1em}.text-blue-700{--tw-text-opacity:1;color:rgb(29 78 216 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-orange-400{--tw-text-opacity:1;color:rgb(251 146 60 / var(--tw-text-opacity, 1))}.text-orange-700{--tw-text-opacity:1;color:rgb(194 65 12 / var(--tw-text-opacity, 1))}.text-orange-800{--tw-text-opacity:1;color:rgb(154 52 18 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-shadow{transition-property:box-shadow;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-500{transition-duration:500ms}.\[backface-visibility\:hidden\]{backface-visibility:hidden}.\[perspective\:1000px\]{perspective:1000px}.\[transform-style\:preserve-3d\]{transform-style:preserve-3d}.\[transform\:rotateY\(180deg\)\]{transform:rotateY(180deg)}.hover\:bg-gray-50:hover{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.group:hover .group-hover\:\[transform\:rotateY\(180deg\)\]{transform:rotateY(180deg)}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}}@media (min-width: 768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:p-8{padding:2rem}}@media (min-width: 1024px){.lg\:col-span-2{grid-column:span 2 / span 2}.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}}&lt;/style&gt;&lt;/head&gt;
+&lt;body class=&quot;text-gray-800&quot;&gt;
+
+    &lt;div class=&quot;flex flex-col h-screen overflow-hidden&quot;&gt;
+        &lt;!-- Top Navigation Bar --&gt;
+        &lt;header class=&quot;bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center shrink-0&quot;&gt;
+            &lt;div class=&quot;flex items-center gap-2&quot;&gt;
+                &lt;div class=&quot;bg-orange-600 text-white p-1 rounded font-bold&quot;&gt;A2&lt;/div&gt;
+                &lt;h1 class=&quot;text-xl font-bold tracking-tight&quot;&gt;Examen Schrijven Prep&lt;/h1&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;hidden md:flex gap-6 text-sm font-medium&quot;&gt;
+                
+                &lt;button onclick=&quot;switchView(&amp;#39;memory&amp;#39;)&quot; id=&quot;btn-memory&quot; class=&quot;nav-btn py-2 tab-active&quot;&gt;Memory Bank&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;text-xs text-gray-500 font-semibold bg-gray-100 px-3 py-1 rounded-full&quot;&gt;
+                Status: 7 dagen tot examen
+            &lt;/div&gt;
+        &lt;/header&gt;
+
+        &lt;!-- Main Content Area --&gt;
+        &lt;main class=&quot;flex-1 overflow-y-auto p-4 md:p-8&quot;&gt;
+            
+            &lt;!-- Mobile Navigation --&gt;
+            &lt;div class=&quot;md:hidden flex mb-6 border-b border-gray-200&quot;&gt;
+                &lt;button onclick=&quot;switchView(&amp;#39;strategy&amp;#39;)&quot; class=&quot;flex-1 py-2 text-center font-bold&quot;&gt;Plan&lt;/button&gt;
+                &lt;button onclick=&quot;switchView(&amp;#39;memory&amp;#39;)&quot; class=&quot;flex-1 py-2 text-center font-bold&quot;&gt;Zinnen&lt;/button&gt;
+            &lt;/div&gt;
+
+            
+
+            &lt;div id=&quot;memory-view&quot; class=&quot;max-w-6xl mx-auto&quot;&gt;
+                &lt;section&gt;
+                    &lt;div class=&quot;flex justify-between items-end mb-6&quot;&gt;
+                        &lt;div&gt;
+                            &lt;h2 class=&quot;text-2xl font-bold mb-1&quot;&gt;De Volledige Memory Bank&lt;/h2&gt;
+                            &lt;p class=&quot;text-gray-600&quot;&gt;Klik op een kaart om de Nederlandse vertaling te zien.&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-md font-bold&quot;&gt;
+                            Totaal: 43 Essentiële Zinnen
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;div class=&quot;flex gap-2 overflow-x-auto pb-4 mb-6 hide-scrollbar&quot; id=&quot;filter-container&quot;&gt;
+                &lt;button onclick=&quot;setFilter(&amp;#39;All&amp;#39;)&quot; class=&quot;px-4 py-2 rounded-full border text-xs font-semibold whitespace-nowrap transition-colors
+                    bg-orange-600 border-orange-600 text-white&quot;&gt;
+                    All
+                &lt;/button&gt;
+            
+                &lt;button onclick=&quot;setFilter(&amp;#39;Everyday Essentials&amp;#39;)&quot; class=&quot;px-4 py-2 rounded-full border text-xs font-semibold whitespace-nowrap transition-colors
+                    bg-white border-gray-200 text-gray-500 hover:bg-gray-50&quot;&gt;
+                    Everyday Essentials
+                &lt;/button&gt;
+            
+                &lt;button onclick=&quot;setFilter(&amp;#39;Reporting Sick/Late&amp;#39;)&quot; class=&quot;px-4 py-2 rounded-full border text-xs font-semibold whitespace-nowrap transition-colors
+                    bg-white border-gray-200 text-gray-500 hover:bg-gray-50&quot;&gt;
+                    Reporting Sick/Late
+                &lt;/button&gt;
+            
+                &lt;button onclick=&quot;setFilter(&amp;#39;Invitations &amp;amp; Parties&amp;#39;)&quot; class=&quot;px-4 py-2 rounded-full border text-xs font-semibold whitespace-nowrap transition-colors
+                    bg-white border-gray-200 text-gray-500 hover:bg-gray-50&quot;&gt;
+                    Invitations &amp;amp; Parties
+                &lt;/button&gt;
+            
+                &lt;button onclick=&quot;setFilter(&amp;#39;Housing &amp;amp; Neighbors&amp;#39;)&quot; class=&quot;px-4 py-2 rounded-full border text-xs font-semibold whitespace-nowrap transition-colors
+                    bg-white border-gray-200 text-gray-500 hover:bg-gray-50&quot;&gt;
+                    Housing &amp;amp; Neighbors
+                &lt;/button&gt;
+            
+                &lt;button onclick=&quot;setFilter(&amp;#39;Work &amp;amp; Career&amp;#39;)&quot; class=&quot;px-4 py-2 rounded-full border text-xs font-semibold whitespace-nowrap transition-colors
+                    bg-white border-gray-200 text-gray-500 hover:bg-gray-50&quot;&gt;
+                    Work &amp;amp; Career
+                &lt;/button&gt;
+            
+                &lt;button onclick=&quot;setFilter(&amp;#39;Giving Your Opinion&amp;#39;)&quot; class=&quot;px-4 py-2 rounded-full border text-xs font-semibold whitespace-nowrap transition-colors
+                    bg-white border-gray-200 text-gray-500 hover:bg-gray-50&quot;&gt;
+                    Giving Your Opinion
+                &lt;/button&gt;
+            &lt;/div&gt;
+
+                    &lt;div class=&quot;grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4&quot; id=&quot;flashcard-grid&quot;&gt;
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Everyday Essentials&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I have a question.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik heb een vraag.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Everyday Essentials&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I want to ask something.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik wil iets vragen.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Everyday Essentials&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I need help.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik heb hulp nodig.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Everyday Essentials&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;Can you help me? (Formal)&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Kunt u mij helpen?&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Everyday Essentials&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;Can you help me? (Informal)&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Kun je mij helpen?&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Everyday Essentials&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I am very happy.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik ben erg blij.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Everyday Essentials&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I think it&#x27;s a pity / I&#x27;m sorry.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik vind het jammer.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Reporting Sick/Late&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I am sick.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik ben ziek.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Reporting Sick/Late&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I have a fever.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik heb koorts.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Reporting Sick/Late&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I have a headache.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik heb hoofdpijn.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Reporting Sick/Late&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I cannot come.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik kan niet komen.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Reporting Sick/Late&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I am coming later.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik kom later.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Reporting Sick/Late&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I am 10 minutes late.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik ben 10 minuten te laat.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Reporting Sick/Late&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I am staying home today.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik blijf vandaag thuis.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Reporting Sick/Late&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I am going to the doctor.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik ga naar de dokter.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Invitations &amp;amp; Parties&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I am giving a party.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik geef een feestje.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Invitations &amp;amp; Parties&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;Are you coming too?&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Kom je ook?&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Invitations &amp;amp; Parties&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;It starts at eight o&#x27;clock.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Het begint om acht uur.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Invitations &amp;amp; Parties&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I would love to come.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik kom graag.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Invitations &amp;amp; Parties&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;Thanks for the invitation.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Bedankt voor de uitnodiging.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Invitations &amp;amp; Parties&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I am bringing a cake.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik neem een taart mee.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Invitations &amp;amp; Parties&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;Congratulations!&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Gefeliciteerd!&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Housing &amp;amp; Neighbors&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;The heating is broken.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;De verwarming is kapot.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Housing &amp;amp; Neighbors&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;The lamp doesn&#x27;t work.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;De lamp doet het niet.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Housing &amp;amp; Neighbors&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;My window is broken.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Mijn raam is stuk.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Housing &amp;amp; Neighbors&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;It is too cold in the house.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Het is te koud in huis.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Housing &amp;amp; Neighbors&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I have a new house.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik heb een nieuw huis.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Housing &amp;amp; Neighbors&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;Are you coming for coffee?&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Kom je op de koffie?&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Housing &amp;amp; Neighbors&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;Sorry for the noise.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Sorry voor het geluid.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Work &amp;amp; Career&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I am looking for a job.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik zoek een baan.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Work &amp;amp; Career&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I would like to work.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik wil graag werken.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Work &amp;amp; Career&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I have experience.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik heb ervaring.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Work &amp;amp; Career&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;What is the salary?&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Wat is het salaris?&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Work &amp;amp; Career&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I want to ask for time off.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik wil vrij vragen.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Work &amp;amp; Career&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I want to go on vacation.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik wil op vakantie gaan.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Work &amp;amp; Career&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I work in the morning.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik werk in de ochtend.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Giving Your Opinion&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I think it is good.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik vind het goed.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Giving Your Opinion&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I think it is fun/nice.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik vind het leuk.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Giving Your Opinion&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I think it is important.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik vind het belangrijk.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Giving Your Opinion&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;That is a good idea.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Dat is een goed idee.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Giving Your Opinion&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I agree with it.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik ben het ermee eens.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;Giving Your Opinion&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;I do not agree with it.&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;Ik ben het er niet mee eens.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+                &lt;/section&gt;
+                
+                &lt;!-- Writing Checklist Section --&gt;
+                &lt;section class=&quot;mt-12 bg-gray-900 text-white p-8 rounded-2xl shadow-xl&quot;&gt;
+                    &lt;h3 class=&quot;text-xl font-bold mb-6 text-orange-400&quot;&gt;7. De Schrijf Checklist (De &quot;Drie C&#x27;s&quot;)&lt;/h3&gt;
+                    &lt;div class=&quot;grid grid-cols-1 md:grid-cols-3 gap-8&quot;&gt;
+                        &lt;div class=&quot;border-l-2 border-orange-500 pl-4&quot;&gt;
+                            &lt;h4 class=&quot;font-bold text-lg mb-2&quot;&gt;Capitalize&lt;/h4&gt;
+                            &lt;p class=&quot;text-gray-400 text-sm&quot;&gt;Begin elke zin met een hoofdletter. Eindig met een punt.&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;border-l-2 border-orange-500 pl-4&quot;&gt;
+                            &lt;h4 class=&quot;font-bold text-lg mb-2&quot;&gt;Correct Verb&lt;/h4&gt;
+                            &lt;p class=&quot;text-gray-400 text-sm&quot;&gt;Zorg dat het werkwoord op de 2e positie staat. &lt;br&gt;&lt;span class=&quot;text-xs italic text-gray-500&quot;&gt;Ik &lt;u&gt;ga&lt;/u&gt; morgen...&lt;/span&gt;&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class=&quot;border-l-2 border-orange-500 pl-4&quot;&gt;
+                            &lt;h4 class=&quot;font-bold text-lg mb-2&quot;&gt;Control&lt;/h4&gt;
+                            &lt;p class=&quot;text-gray-400 text-sm&quot;&gt;Houd zinnen onder de 6-8 woorden. Korte zinnen = nul grammaticale fouten.&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/section&gt;
+            &lt;/div&gt;
+
+        &lt;/main&gt;
+
+        &lt;!-- Fixed Footer --&gt;
+        &lt;footer class=&quot;bg-white border-t border-gray-200 p-4 text-center text-[10px] text-gray-400 shrink-0&quot;&gt;
+            A2 Schrijven Prep Tool • Gebruik korte zinnen om te slagen.
+        &lt;/footer&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        // --- DATA ---
+        const calendar = [
+            { day: 1, title: &quot;De Basis&quot;, task: &quot;S.V.T.P. Structuur leren &amp; 10 zinnen over jezelf schrijven.&quot;, time: &quot;2u&quot; },
+            { day: 2, title: &quot;Verbindingen&quot;, task: &quot;Leren verbinden met &#x27;En&#x27;, &#x27;Maar&#x27;, &#x27;Want&#x27;. Nooit &#x27;Omdat&#x27;!&quot;, time: &quot;2u&quot; },
+            { day: 3, title: &quot;Het Verleden&quot;, task: &quot;Perfectum (Ik heb gewerkt / Ik ben gegaan) oefenen.&quot;, time: &quot;2u&quot; },
+            { day: 4, title: &quot;E-mails 1&quot;, task: &quot;Uitnodigingen schrijven (Informal). Hoi, kom je ook?&quot;, time: &quot;2u&quot; },
+            { day: 5, title: &quot;Problemen&quot;, task: &quot;Ziek melden en kapotte dingen in huis rapporteren.&quot;, time: &quot;2u&quot; },
+            { day: 6, title: &quot;Werk &amp; Vakantie&quot;, task: &quot;Vakantie vragen en ervaringen delen.&quot;, time: &quot;2u&quot; },
+            { day: 7, title: &quot;Examen Sim&quot;, task: &quot;Oefenexamens doen en generieke &#x27;I don&#x27;t know&#x27; zinnen leren.&quot;, time: &quot;2u&quot; }
+        ];
+
+        const memoryBank = [
+            // Essentials
+            { category: &quot;Everyday Essentials&quot;, eng: &quot;I have a question.&quot;, nl: &quot;Ik heb een vraag.&quot; },
+            { category: &quot;Everyday Essentials&quot;, eng: &quot;I want to ask something.&quot;, nl: &quot;Ik wil iets vragen.&quot; },
+            { category: &quot;Everyday Essentials&quot;, eng: &quot;I need help.&quot;, nl: &quot;Ik heb hulp nodig.&quot; },
+            { category: &quot;Everyday Essentials&quot;, eng: &quot;Can you help me? (Formal)&quot;, nl: &quot;Kunt u mij helpen?&quot; },
+            { category: &quot;Everyday Essentials&quot;, eng: &quot;Can you help me? (Informal)&quot;, nl: &quot;Kun je mij helpen?&quot; },
+            { category: &quot;Everyday Essentials&quot;, eng: &quot;I am very happy.&quot;, nl: &quot;Ik ben erg blij.&quot; },
+            { category: &quot;Everyday Essentials&quot;, eng: &quot;I think it&#x27;s a pity / I&#x27;m sorry.&quot;, nl: &quot;Ik vind het jammer.&quot; },
+            // Sick
+            { category: &quot;Reporting Sick/Late&quot;, eng: &quot;I am sick.&quot;, nl: &quot;Ik ben ziek.&quot; },
+            { category: &quot;Reporting Sick/Late&quot;, eng: &quot;I have a fever.&quot;, nl: &quot;Ik heb koorts.&quot; },
+            { category: &quot;Reporting Sick/Late&quot;, eng: &quot;I have a headache.&quot;, nl: &quot;Ik heb hoofdpijn.&quot; },
+            { category: &quot;Reporting Sick/Late&quot;, eng: &quot;I cannot come.&quot;, nl: &quot;Ik kan niet komen.&quot; },
+            { category: &quot;Reporting Sick/Late&quot;, eng: &quot;I am coming later.&quot;, nl: &quot;Ik kom later.&quot; },
+            { category: &quot;Reporting Sick/Late&quot;, eng: &quot;I am 10 minutes late.&quot;, nl: &quot;Ik ben 10 minuten te laat.&quot; },
+            { category: &quot;Reporting Sick/Late&quot;, eng: &quot;I am staying home today.&quot;, nl: &quot;Ik blijf vandaag thuis.&quot; },
+            { category: &quot;Reporting Sick/Late&quot;, eng: &quot;I am going to the doctor.&quot;, nl: &quot;Ik ga naar de dokter.&quot; },
+            // Invitations
+            { category: &quot;Invitations &amp; Parties&quot;, eng: &quot;I am giving a party.&quot;, nl: &quot;Ik geef een feestje.&quot; },
+            { category: &quot;Invitations &amp; Parties&quot;, eng: &quot;Are you coming too?&quot;, nl: &quot;Kom je ook?&quot; },
+            { category: &quot;Invitations &amp; Parties&quot;, eng: &quot;It starts at eight o&#x27;clock.&quot;, nl: &quot;Het begint om acht uur.&quot; },
+            { category: &quot;Invitations &amp; Parties&quot;, eng: &quot;I would love to come.&quot;, nl: &quot;Ik kom graag.&quot; },
+            { category: &quot;Invitations &amp; Parties&quot;, eng: &quot;Thanks for the invitation.&quot;, nl: &quot;Bedankt voor de uitnodiging.&quot; },
+            { category: &quot;Invitations &amp; Parties&quot;, eng: &quot;I am bringing a cake.&quot;, nl: &quot;Ik neem een taart mee.&quot; },
+            { category: &quot;Invitations &amp; Parties&quot;, eng: &quot;Congratulations!&quot;, nl: &quot;Gefeliciteerd!&quot; },
+            // Housing
+            { category: &quot;Housing &amp; Neighbors&quot;, eng: &quot;The heating is broken.&quot;, nl: &quot;De verwarming is kapot.&quot; },
+            { category: &quot;Housing &amp; Neighbors&quot;, eng: &quot;The lamp doesn&#x27;t work.&quot;, nl: &quot;De lamp doet het niet.&quot; },
+            { category: &quot;Housing &amp; Neighbors&quot;, eng: &quot;My window is broken.&quot;, nl: &quot;Mijn raam is stuk.&quot; },
+            { category: &quot;Housing &amp; Neighbors&quot;, eng: &quot;It is too cold in the house.&quot;, nl: &quot;Het is te koud in huis.&quot; },
+            { category: &quot;Housing &amp; Neighbors&quot;, eng: &quot;I have a new house.&quot;, nl: &quot;Ik heb een nieuw huis.&quot; },
+            { category: &quot;Housing &amp; Neighbors&quot;, eng: &quot;Are you coming for coffee?&quot;, nl: &quot;Kom je op de koffie?&quot; },
+            { category: &quot;Housing &amp; Neighbors&quot;, eng: &quot;Sorry for the noise.&quot;, nl: &quot;Sorry voor het geluid.&quot; },
+            // Work
+            { category: &quot;Work &amp; Career&quot;, eng: &quot;I am looking for a job.&quot;, nl: &quot;Ik zoek een baan.&quot; },
+            { category: &quot;Work &amp; Career&quot;, eng: &quot;I would like to work.&quot;, nl: &quot;Ik wil graag werken.&quot; },
+            { category: &quot;Work &amp; Career&quot;, eng: &quot;I have experience.&quot;, nl: &quot;Ik heb ervaring.&quot; },
+            { category: &quot;Work &amp; Career&quot;, eng: &quot;What is the salary?&quot;, nl: &quot;Wat is het salaris?&quot; },
+            { category: &quot;Work &amp; Career&quot;, eng: &quot;I want to ask for time off.&quot;, nl: &quot;Ik wil vrij vragen.&quot; },
+            { category: &quot;Work &amp; Career&quot;, eng: &quot;I want to go on vacation.&quot;, nl: &quot;Ik wil op vakantie gaan.&quot; },
+            { category: &quot;Work &amp; Career&quot;, eng: &quot;I work in the morning.&quot;, nl: &quot;Ik werk in de ochtend.&quot; },
+            // Opinion
+            { category: &quot;Giving Your Opinion&quot;, eng: &quot;I think it is good.&quot;, nl: &quot;Ik vind het goed.&quot; },
+            { category: &quot;Giving Your Opinion&quot;, eng: &quot;I think it is fun/nice.&quot;, nl: &quot;Ik vind het leuk.&quot; },
+            { category: &quot;Giving Your Opinion&quot;, eng: &quot;I think it is important.&quot;, nl: &quot;Ik vind het belangrijk.&quot; },
+            { category: &quot;Giving Your Opinion&quot;, eng: &quot;That is a good idea.&quot;, nl: &quot;Dat is een goed idee.&quot; },
+            { category: &quot;Giving Your Opinion&quot;, eng: &quot;I agree with it.&quot;, nl: &quot;Ik ben het ermee eens.&quot; },
+            { category: &quot;Giving Your Opinion&quot;, eng: &quot;I do not agree with it.&quot;, nl: &quot;Ik ben het er niet mee eens.&quot; }
+        ];
+
+        // --- STATE ---
+        let currentView = &#x27;strategy&#x27;;
+        let activeFilter = &#x27;All&#x27;;
+
+        // --- COMPONENTS ---
+        function renderCalendar() {
+            const grid = document.getElementById(&#x27;calendar-grid&#x27;);
+            grid.innerHTML = calendar.map(d =&gt; `
+                &lt;div class=&quot;bg-white p-5 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow&quot;&gt;
+                    &lt;div class=&quot;flex justify-between items-start mb-2&quot;&gt;
+                        &lt;span class=&quot;bg-orange-100 text-orange-700 text-[10px] font-bold px-2 py-0.5 rounded&quot;&gt;DAG ${d.day}&lt;/span&gt;
+                        &lt;span class=&quot;text-xs text-gray-400 font-medium&quot;&gt;${d.time}&lt;/span&gt;
+                    &lt;/div&gt;
+                    &lt;h4 class=&quot;font-bold text-gray-800 mb-2&quot;&gt;${d.title}&lt;/h4&gt;
+                    &lt;p class=&quot;text-xs text-gray-500 leading-relaxed&quot;&gt;${d.task}&lt;/p&gt;
+                &lt;/div&gt;
+            `).join(&#x27;&#x27;);
+        }
+
+        function renderFilters() {
+            const categories = [&#x27;All&#x27;, ...new Set(memoryBank.map(item =&gt; item.category))];
+            const container = document.getElementById(&#x27;filter-container&#x27;);
+            container.innerHTML = categories.map(cat =&gt; `
+                &lt;button onclick=&quot;setFilter(&#x27;${cat}&#x27;)&quot; 
+                    class=&quot;px-4 py-2 rounded-full border text-xs font-semibold whitespace-nowrap transition-colors
+                    ${activeFilter === cat ? &#x27;bg-orange-600 border-orange-600 text-white&#x27; : &#x27;bg-white border-gray-200 text-gray-500 hover:bg-gray-50&#x27;}&quot;&gt;
+                    ${cat}
+                &lt;/button&gt;
+            `).join(&#x27;&#x27;);
+        }
+
+        function renderFlashcards() {
+            const grid = document.getElementById(&#x27;flashcard-grid&#x27;);
+            const filtered = activeFilter === &#x27;All&#x27; ? memoryBank : memoryBank.filter(i =&gt; i.category === activeFilter);
+            
+            grid.innerHTML = filtered.map((item, idx) =&gt; `
+                &lt;div class=&quot;group h-32 [perspective:1000px]&quot;&gt;
+                    &lt;div class=&quot;relative h-full w-full rounded-xl shadow-sm transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] cursor-pointer&quot;&gt;
+                        &lt;!-- Front --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-white border border-gray-100 p-4 flex flex-col justify-between [backface-visibility:hidden]&quot;&gt;
+                            &lt;span class=&quot;text-[9px] uppercase font-bold text-gray-400 tracking-widest&quot;&gt;${item.category}&lt;/span&gt;
+                            &lt;p class=&quot;text-sm font-medium text-gray-800&quot;&gt;${item.eng}&lt;/p&gt;
+                            &lt;span class=&quot;text-[10px] text-orange-400 text-right&quot;&gt;Bekijk →&lt;/span&gt;
+                        &lt;/div&gt;
+                        &lt;!-- Back --&gt;
+                        &lt;div class=&quot;absolute inset-0 h-full w-full rounded-xl bg-orange-600 p-4 text-white flex items-center justify-center [transform:rotateY(180deg)] [backface-visibility:hidden]&quot;&gt;
+                            &lt;p class=&quot;text-md font-bold text-center&quot;&gt;${item.nl}&lt;/p&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            `).join(&#x27;&#x27;);
+        }
+
+        // --- APP LOGIC ---
+        window.switchView = function(view) {
+            currentView = view;
+            document.getElementById(&#x27;strategy-view&#x27;).classList.toggle(&#x27;hidden&#x27;, view !== &#x27;strategy&#x27;);
+            document.getElementById(&#x27;memory-view&#x27;).classList.toggle(&#x27;hidden&#x27;, view !== &#x27;memory&#x27;);
+            
+            document.getElementById(&#x27;btn-strategy&#x27;).classList.toggle(&#x27;tab-active&#x27;, view === &#x27;strategy&#x27;);
+            document.getElementById(&#x27;btn-memory&#x27;).classList.toggle(&#x27;tab-active&#x27;, view === &#x27;memory&#x27;);
+        };
+
+        window.setFilter = function(filter) {
+            activeFilter = filter;
+            renderFilters();
+            renderFlashcards();
+        };
+
+        function initChart() {
+            const ctx = document.getElementById(&#x27;scoreChart&#x27;).getContext(&#x27;2d&#x27;);
+            new Chart(ctx, {
+                type: &#x27;doughnut&#x27;,
+                data: {
+                    labels: [&#x27;Inhoud (Content)&#x27;, &#x27;Grammatica&#x27;, &#x27;Spelling/Interpunctie&#x27;],
+                    datasets: [{
+                        data: [50, 30, 20],
+                        backgroundColor: [&#x27;#ea580c&#x27;, &#x27;#4b5563&#x27;, &#x27;#9ca3af&#x27;],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: &#x27;bottom&#x27;, labels: { boxWidth: 10, font: { size: 10 } } }
+                    },
+                    cutout: &#x27;70%&#x27;
+                }
+            });
+        }
+
+        // --- BOOTSTRAP ---
+        window.onload = () =&gt; {
+            renderCalendar();
+            renderFilters();
+            renderFlashcards();
+            initChart();
+        };
+    &lt;/script&gt;
+
+&lt;/body&gt;&lt;/html&gt;"></iframe>
+</section>
+</main>
+</body>
+</html>
